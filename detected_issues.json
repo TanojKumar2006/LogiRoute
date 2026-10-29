@@ -1,0 +1,425 @@
+[
+ {
+  "issue_type": "CAPACITY_EXCEEDED",
+  "severity": "High",
+  "entity_type": "route",
+  "entity_id": "RTE-2026-000002",
+  "expected": "<= 750.00 kg / 5.90 m3",
+  "observed": "778.4 kg / 3.02 m3",
+  "explanation": "Assigned load exceeds the vehicle capacity effective on the route date.",
+  "recommended_action": "Move stops to a larger vehicle or split the route",
+  "resolution_status": "OPEN",
+  "affected": [
+   "RTE-2026-000002",
+   "VEH-000008"
+  ],
+  "issue_id": "ISS-000001"
+ },
+ {
+  "issue_type": "DERIVED_MISMATCH",
+  "severity": "Medium",
+  "entity_type": "route",
+  "entity_id": "RTE-2026-000002",
+  "expected": "6",
+  "observed": "5",
+  "explanation": "stop_count does not equal the value recomputed from route stops.",
+  "recommended_action": "Recalculate the derived value from source records",
+  "resolution_status": "OPEN",
+  "affected": [
+   "RTE-2026-000002"
+  ],
+  "issue_id": "ISS-000002"
+ },
+ {
+  "issue_type": "DERIVED_MISMATCH",
+  "severity": "Medium",
+  "entity_type": "route",
+  "entity_id": "RTE-2026-000002",
+  "expected": "67",
+  "observed": "60",
+  "explanation": "total_service_min does not equal the value recomputed from route stops.",
+  "recommended_action": "Recalculate the derived value from source records",
+  "resolution_status": "OPEN",
+  "affected": [
+   "RTE-2026-000002"
+  ],
+  "issue_id": "ISS-000003"
+ },
+ {
+  "issue_type": "DERIVED_MISMATCH",
+  "severity": "Medium",
+  "entity_type": "route",
+  "entity_id": "RTE-2026-000002",
+  "expected": "29847473",
+  "observed": "29847466",
+  "explanation": "planned_end does not equal last departure plus return travel.",
+  "recommended_action": "Recalculate the derived value from source records",
+  "resolution_status": "OPEN",
+  "affected": [
+   "RTE-2026-000002"
+  ],
+  "issue_id": "ISS-000004"
+ },
+ {
+  "issue_type": "DERIVED_MISMATCH",
+  "severity": "Medium",
+  "entity_type": "route",
+  "entity_id": "RTE-2026-000002",
+  "expected": "778.4",
+  "observed": "681.80",
+  "explanation": "total_weight_kg does not equal the sum of stop weights.",
+  "recommended_action": "Recalculate the derived value from source records",
+  "resolution_status": "OPEN",
+  "affected": [
+   "RTE-2026-000002"
+  ],
+  "issue_id": "ISS-000005"
+ },
+ {
+  "issue_type": "STOP_OMITTED",
+  "severity": "High",
+  "entity_type": "route",
+  "entity_id": "RTE-2026-000003",
+  "expected": "sequence 1..4",
+  "observed": "[1, 3, 4, 5]",
+  "explanation": "Route stop sequence has a gap, so a stop was omitted.",
+  "recommended_action": "Restore the missing stop or mark the delivery unserved",
+  "resolution_status": "OPEN",
+  "affected": [
+   "RTE-2026-000003",
+   "DEL-2026-000101",
+   "DEL-2026-000108",
+   "DEL-2026-000073",
+   "DEL-2026-000091"
+  ],
+  "issue_id": "ISS-000006"
+ },
+ {
+  "issue_type": "DERIVED_MISMATCH",
+  "severity": "Medium",
+  "entity_type": "route",
+  "entity_id": "RTE-2026-000003",
+  "expected": "4",
+  "observed": "5",
+  "explanation": "stop_count does not equal the value recomputed from route stops.",
+  "recommended_action": "Recalculate the derived value from source records",
+  "resolution_status": "OPEN",
+  "affected": [
+   "RTE-2026-000003"
+  ],
+  "issue_id": "ISS-000007"
+ },
+ {
+  "issue_type": "DERIVED_MISMATCH",
+  "severity": "Medium",
+  "entity_type": "route",
+  "entity_id": "RTE-2026-000003",
+  "expected": "41",
+  "observed": "58",
+  "explanation": "total_service_min does not equal the value recomputed from route stops.",
+  "recommended_action": "Recalculate the derived value from source records",
+  "resolution_status": "OPEN",
+  "affected": [
+   "RTE-2026-000003"
+  ],
+  "issue_id": "ISS-000008"
+ },
+ {
+  "issue_type": "DERIVED_MISMATCH",
+  "severity": "Medium",
+  "entity_type": "route",
+  "entity_id": "RTE-2026-000003",
+  "expected": "83.74",
+  "observed": "103.76",
+  "explanation": "total_distance_km does not equal stop legs plus return leg.",
+  "recommended_action": "Recalculate the derived value from source records",
+  "resolution_status": "OPEN",
+  "affected": [
+   "RTE-2026-000003"
+  ],
+  "issue_id": "ISS-000009"
+ },
+ {
+  "issue_type": "DERIVED_MISMATCH",
+  "severity": "Medium",
+  "entity_type": "route",
+  "entity_id": "RTE-2026-000003",
+  "expected": "535.7",
+  "observed": "649.60",
+  "explanation": "total_weight_kg does not equal the sum of stop weights.",
+  "recommended_action": "Recalculate the derived value from source records",
+  "resolution_status": "OPEN",
+  "affected": [
+   "RTE-2026-000003"
+  ],
+  "issue_id": "ISS-000010"
+ },
+ {
+  "issue_type": "DERIVED_MISMATCH",
+  "severity": "Medium",
+  "entity_type": "route",
+  "entity_id": "RTE-2026-000011",
+  "expected": "75.87",
+  "observed": "113.37",
+  "explanation": "total_distance_km does not equal stop legs plus return leg.",
+  "recommended_action": "Recalculate the derived value from source records",
+  "resolution_status": "OPEN",
+  "affected": [
+   "RTE-2026-000011"
+  ],
+  "issue_id": "ISS-000011"
+ },
+ {
+  "issue_type": "SHIFT_EXCEEDED",
+  "severity": "High",
+  "entity_type": "route",
+  "entity_id": "RTE-2026-000013",
+  "expected": "within 2026-10-02T02:30:00Z..2026-10-02T06:27:00Z",
+  "observed": "2026-10-02T03:38:00Z..2026-10-02T06:42:00Z",
+  "explanation": "Route runs outside the driver's shift.",
+  "recommended_action": "Shorten the route or assign another driver",
+  "resolution_status": "OPEN",
+  "affected": [
+   "RTE-2026-000013",
+   "SHF-000018",
+   "DRV-000013"
+  ],
+  "issue_id": "ISS-000012"
+ },
+ {
+  "issue_type": "CAPACITY_EXCEEDED",
+  "severity": "High",
+  "entity_type": "route",
+  "entity_id": "RTE-2026-000017",
+  "expected": "<= 426.84 kg / 50.00 m3",
+  "observed": "711.4 kg / 2.56 m3",
+  "explanation": "Assigned load exceeds the vehicle capacity effective on the route date.",
+  "recommended_action": "Move stops to a larger vehicle or split the route",
+  "resolution_status": "OPEN",
+  "affected": [
+   "RTE-2026-000017",
+   "VEH-000005"
+  ],
+  "issue_id": "ISS-000013"
+ },
+ {
+  "issue_type": "STOP_DUPLICATED",
+  "severity": "Medium",
+  "entity_type": "route",
+  "entity_id": "RTE-2026-000021",
+  "expected": "each delivery once per route",
+  "observed": "DEL-2026-000023 x2",
+  "explanation": "The same delivery appears more than once in one route.",
+  "recommended_action": "Remove the duplicate stop",
+  "resolution_status": "OPEN",
+  "affected": [
+   "RTE-2026-000021",
+   "DEL-2026-000023"
+  ],
+  "issue_id": "ISS-000014"
+ },
+ {
+  "issue_type": "DERIVED_MISMATCH",
+  "severity": "Medium",
+  "entity_type": "route",
+  "entity_id": "RTE-2026-000021",
+  "expected": "5",
+  "observed": "4",
+  "explanation": "stop_count does not equal the value recomputed from route stops.",
+  "recommended_action": "Recalculate the derived value from source records",
+  "resolution_status": "OPEN",
+  "affected": [
+   "RTE-2026-000021"
+  ],
+  "issue_id": "ISS-000015"
+ },
+ {
+  "issue_type": "DERIVED_MISMATCH",
+  "severity": "Medium",
+  "entity_type": "route",
+  "entity_id": "RTE-2026-000021",
+  "expected": "69",
+  "observed": "53",
+  "explanation": "total_service_min does not equal the value recomputed from route stops.",
+  "recommended_action": "Recalculate the derived value from source records",
+  "resolution_status": "OPEN",
+  "affected": [
+   "RTE-2026-000021"
+  ],
+  "issue_id": "ISS-000016"
+ },
+ {
+  "issue_type": "DERIVED_MISMATCH",
+  "severity": "Medium",
+  "entity_type": "route",
+  "entity_id": "RTE-2026-000021",
+  "expected": "29850189",
+  "observed": "29850173",
+  "explanation": "planned_end does not equal last departure plus return travel.",
+  "recommended_action": "Recalculate the derived value from source records",
+  "resolution_status": "OPEN",
+  "affected": [
+   "RTE-2026-000021"
+  ],
+  "issue_id": "ISS-000017"
+ },
+ {
+  "issue_type": "ARRIVAL_BEFORE_DEPARTURE",
+  "severity": "High",
+  "entity_type": "route_stop",
+  "entity_id": "STOP-RTE-2026-000029-002",
+  "expected": ">= 29852867",
+  "observed": "29852861",
+  "explanation": "Arrival is earlier than previous departure plus required travel time.",
+  "recommended_action": "Recompute arrival from previous departure plus travel time",
+  "resolution_status": "OPEN",
+  "affected": [
+   "STOP-RTE-2026-000029-002",
+   "RTE-2026-000029"
+  ],
+  "issue_id": "ISS-000018"
+ },
+ {
+  "issue_type": "WINDOW_VIOLATION",
+  "severity": "Medium",
+  "entity_type": "route_stop",
+  "entity_id": "STOP-RTE-2026-000030-002",
+  "expected": "2026-10-05T03:30:00Z..2026-10-05T05:30:00Z",
+  "observed": "service start 29852990",
+  "explanation": "Service would start outside the delivery time window.",
+  "recommended_action": "Re-sequence stops or renegotiate the window",
+  "resolution_status": "OPEN",
+  "affected": [
+   "STOP-RTE-2026-000030-002",
+   "RTE-2026-000030",
+   "DEL-2026-000105"
+  ],
+  "issue_id": "ISS-000019"
+ },
+ {
+  "issue_type": "ARRIVAL_BEFORE_DEPARTURE",
+  "severity": "High",
+  "entity_type": "route_stop",
+  "entity_id": "STOP-RTE-2026-000030-003",
+  "expected": ">= 29853111",
+  "observed": "29853033",
+  "explanation": "Arrival is earlier than previous departure plus required travel time.",
+  "recommended_action": "Recompute arrival from previous departure plus travel time",
+  "resolution_status": "OPEN",
+  "affected": [
+   "STOP-RTE-2026-000030-003",
+   "RTE-2026-000030"
+  ],
+  "issue_id": "ISS-000020"
+ },
+ {
+  "issue_type": "INCOMPATIBLE_VEHICLE",
+  "severity": "High",
+  "entity_type": "delivery",
+  "entity_id": "DEL-2026-000120",
+  "expected": "LARGE..LARGE",
+  "observed": "MEDIUM",
+  "explanation": "Vehicle class is outside what the delivery and site allow.",
+  "recommended_action": "Reassign to an eligible vehicle class",
+  "resolution_status": "OPEN",
+  "affected": [
+   "DEL-2026-000120",
+   "RTE-2026-000033",
+   "VEH-000009"
+  ],
+  "issue_id": "ISS-000021"
+ },
+ {
+  "issue_type": "STOP_OMITTED",
+  "severity": "High",
+  "entity_type": "delivery",
+  "entity_id": "DEL-2026-000099",
+  "expected": "at least one route stop",
+  "observed": "0",
+  "explanation": "Delivery has a terminal outcome but no route stop.",
+  "recommended_action": "Restore the missing stop or mark the delivery unserved",
+  "resolution_status": "OPEN",
+  "affected": [
+   "DEL-2026-000099"
+  ],
+  "issue_id": "ISS-000022"
+ },
+ {
+  "issue_type": "COORD_OUTSIDE_REGION",
+  "severity": "Medium",
+  "entity_type": "customer_site",
+  "entity_id": "SITE-000005",
+  "expected": "inside configured region",
+  "observed": "18.460846,78.42022",
+  "explanation": "Site coordinates fall outside the operating region.",
+  "recommended_action": "Correct or geocode the site coordinates",
+  "resolution_status": "OPEN",
+  "affected": [
+   "SITE-000005"
+  ],
+  "issue_id": "ISS-000023"
+ },
+ {
+  "issue_type": "MISSING_PARENT",
+  "severity": "Critical",
+  "entity_type": "deliveries",
+  "entity_id": "DEL-2026-000015",
+  "expected": "customer_sites.site_id exists",
+  "observed": "SITE-999999",
+  "explanation": "deliveries.site_id references a record that does not exist.",
+  "recommended_action": "Create the parent record or correct the reference",
+  "resolution_status": "OPEN",
+  "affected": [
+   "DEL-2026-000015"
+  ],
+  "issue_id": "ISS-000024"
+ },
+ {
+  "issue_type": "DUPLICATE_ACTIVE_ASSIGNMENT",
+  "severity": "High",
+  "entity_type": "delivery",
+  "entity_id": "DEL-2026-000090",
+  "expected": "one route per day",
+  "observed": "['RTE-2026-000002', 'RTE-2026-000008']",
+  "explanation": "Delivery is assigned to several routes on the same day.",
+  "recommended_action": "Cancel one of the conflicting assignments",
+  "resolution_status": "OPEN",
+  "affected": [
+   "DEL-2026-000090",
+   "RTE-2026-000002",
+   "RTE-2026-000008"
+  ],
+  "issue_id": "ISS-000025"
+ },
+ {
+  "issue_type": "INVALID_LIFECYCLE",
+  "severity": "Medium",
+  "entity_type": "delivery",
+  "entity_id": "DEL-2026-000067",
+  "expected": "valid transition from DELIVERED",
+  "observed": "DELIVERED -> IN_TRANSIT",
+  "explanation": "Event is not an allowed lifecycle transition.",
+  "recommended_action": "Reject the event and restore the last valid state",
+  "resolution_status": "OPEN",
+  "affected": [
+   "DEL-2026-000067",
+   "EVT-9000616"
+  ],
+  "issue_id": "ISS-000026"
+ },
+ {
+  "issue_type": "DERIVED_MISMATCH",
+  "severity": "Medium",
+  "entity_type": "delivery",
+  "entity_id": "DEL-2026-000067",
+  "expected": "IN_TRANSIT",
+  "observed": "DELIVERED",
+  "explanation": "delivery.status does not equal the last event's to_status.",
+  "recommended_action": "Recalculate the derived value from source records",
+  "resolution_status": "OPEN",
+  "affected": [
+   "DEL-2026-000067"
+  ],
+  "issue_id": "ISS-000027"
+ }
+]

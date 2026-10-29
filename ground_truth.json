@@ -1,0 +1,172 @@
+[
+ {
+  "anomaly_id": "ANOM-0001",
+  "anomaly_type": "CAPACITY_EXCEEDED",
+  "entity_id": "RTE-2026-000017",
+  "affected_entities": [
+   "RTE-2026-000017",
+   "VEH-000005"
+  ],
+  "expected_decision": "REJECT_PLAN",
+  "explanation": "Temporary derate set the capacity of VEH-000005 to 60% of the 711 kg planned on RTE-2026-000017.",
+  "allowed_secondary_types": []
+ },
+ {
+  "anomaly_id": "ANOM-0002",
+  "anomaly_type": "STOP_OMITTED",
+  "entity_id": "DEL-2026-000099",
+  "affected_entities": [
+   "DEL-2026-000099",
+   "RTE-2026-000003"
+  ],
+  "expected_decision": "REJECT_PLAN",
+  "explanation": "Stop STOP-RTE-2026-000003-002 (and its outcome) was removed from RTE-2026-000003; the delivery still shows a terminal status.",
+  "allowed_secondary_types": [
+   "DERIVED_MISMATCH"
+  ]
+ },
+ {
+  "anomaly_id": "ANOM-0003",
+  "anomaly_type": "STOP_DUPLICATED",
+  "entity_id": "RTE-2026-000021",
+  "affected_entities": [
+   "RTE-2026-000021",
+   "DEL-2026-000023"
+  ],
+  "expected_decision": "REJECT_PLAN",
+  "explanation": "Delivery DEL-2026-000023 was appended a second time to RTE-2026-000021.",
+  "allowed_secondary_types": [
+   "ARRIVAL_BEFORE_DEPARTURE",
+   "CAPACITY_EXCEEDED",
+   "DERIVED_MISMATCH",
+   "SHIFT_EXCEEDED",
+   "WINDOW_VIOLATION"
+  ]
+ },
+ {
+  "anomaly_id": "ANOM-0004",
+  "anomaly_type": "ARRIVAL_BEFORE_DEPARTURE",
+  "entity_id": "STOP-RTE-2026-000029-002",
+  "affected_entities": [
+   "STOP-RTE-2026-000029-002",
+   "RTE-2026-000029"
+  ],
+  "expected_decision": "REJECT_PLAN",
+  "explanation": "Arrival at STOP-RTE-2026-000029-002 was set 1 minute after the previous departure, ignoring 7 min of travel.",
+  "allowed_secondary_types": [
+   "DERIVED_MISMATCH",
+   "WINDOW_VIOLATION"
+  ]
+ },
+ {
+  "anomaly_id": "ANOM-0005",
+  "anomaly_type": "SHIFT_EXCEEDED",
+  "entity_id": "RTE-2026-000013",
+  "affected_entities": [
+   "RTE-2026-000013",
+   "SHF-000018"
+  ],
+  "expected_decision": "REJECT_PLAN",
+  "explanation": "Shift SHF-000018 now ends 15 minutes before route RTE-2026-000013 returns.",
+  "allowed_secondary_types": []
+ },
+ {
+  "anomaly_id": "ANOM-0006",
+  "anomaly_type": "COORD_OUTSIDE_REGION",
+  "entity_id": "SITE-000005",
+  "affected_entities": [
+   "SITE-000005"
+  ],
+  "expected_decision": "FLAG_FOR_REVIEW",
+  "explanation": "Latitude of SITE-000005 was shifted 0.9 degrees north, outside the region.",
+  "allowed_secondary_types": []
+ },
+ {
+  "anomaly_id": "ANOM-0007",
+  "anomaly_type": "INCOMPATIBLE_VEHICLE",
+  "entity_id": "DEL-2026-000120",
+  "affected_entities": [
+   "DEL-2026-000120",
+   "RTE-2026-000033",
+   "VEH-000009"
+  ],
+  "expected_decision": "REJECT_PLAN",
+  "explanation": "DEL-2026-000120 now requires a LARGE vehicle but VEH-000009 is MEDIUM.",
+  "allowed_secondary_types": []
+ },
+ {
+  "anomaly_id": "ANOM-0008",
+  "anomaly_type": "WINDOW_VIOLATION",
+  "entity_id": "STOP-RTE-2026-000030-002",
+  "affected_entities": [
+   "STOP-RTE-2026-000030-002",
+   "RTE-2026-000030",
+   "DEL-2026-000105"
+  ],
+  "expected_decision": "REJECT_PLAN",
+  "explanation": "Arrival at STOP-RTE-2026-000030-002 moved 20 minutes after its window closes.",
+  "allowed_secondary_types": [
+   "ARRIVAL_BEFORE_DEPARTURE",
+   "DERIVED_MISMATCH",
+   "SHIFT_EXCEEDED"
+  ]
+ },
+ {
+  "anomaly_id": "ANOM-0009",
+  "anomaly_type": "MISSING_PARENT",
+  "entity_id": "DEL-2026-000015",
+  "affected_entities": [
+   "DEL-2026-000015",
+   "RTE-2026-000034"
+  ],
+  "expected_decision": "BLOCK_RECORD",
+  "explanation": "DEL-2026-000015 references non-existent site SITE-999999.",
+  "allowed_secondary_types": []
+ },
+ {
+  "anomaly_id": "ANOM-0010",
+  "anomaly_type": "DUPLICATE_ACTIVE_ASSIGNMENT",
+  "entity_id": "DEL-2026-000090",
+  "affected_entities": [
+   "DEL-2026-000090",
+   "RTE-2026-000008",
+   "RTE-2026-000002"
+  ],
+  "expected_decision": "REJECT_PLAN",
+  "explanation": "DEL-2026-000090 is now also assigned to RTE-2026-000002 on the same day as RTE-2026-000008.",
+  "allowed_secondary_types": [
+   "ARRIVAL_BEFORE_DEPARTURE",
+   "CAPACITY_EXCEEDED",
+   "DERIVED_MISMATCH",
+   "INCOMPATIBLE_VEHICLE",
+   "SHIFT_EXCEEDED",
+   "STOP_OMITTED",
+   "WINDOW_VIOLATION"
+  ]
+ },
+ {
+  "anomaly_id": "ANOM-0011",
+  "anomaly_type": "INVALID_LIFECYCLE",
+  "entity_id": "DEL-2026-000067",
+  "affected_entities": [
+   "DEL-2026-000067",
+   "RTE-2026-000026"
+  ],
+  "expected_decision": "REJECT_EVENT",
+  "explanation": "DEL-2026-000067 moved from DELIVERED back to IN_TRANSIT, which is not an allowed transition.",
+  "allowed_secondary_types": [
+   "DERIVED_MISMATCH"
+  ]
+ },
+ {
+  "anomaly_id": "ANOM-0012",
+  "anomaly_type": "DERIVED_MISMATCH",
+  "entity_id": "RTE-2026-000011",
+  "affected_entities": [
+   "RTE-2026-000011"
+  ],
+  "expected_decision": "RECALCULATE",
+  "explanation": "total_distance_km of RTE-2026-000011 was increased by 37.5 km without changing its stops.",
+  "allowed_secondary_types": []
+ }
+]

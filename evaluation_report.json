@@ -1,0 +1,167 @@
+{
+ "overall": {
+  "injected": 12,
+  "true_positive": 12,
+  "false_positive": 0,
+  "false_negative": 0,
+  "precision": 1.0,
+  "recall": 1.0,
+  "f1": 1.0,
+  "secondary_findings_ignored": 14
+ },
+ "per_type": [
+  {
+   "type": "CAPACITY_EXCEEDED",
+   "injected": 1,
+   "true_positive": 1,
+   "false_positive": 0,
+   "false_negative": 0,
+   "precision": 1.0,
+   "recall": 1.0,
+   "f1": 1.0
+  },
+  {
+   "type": "STOP_OMITTED",
+   "injected": 1,
+   "true_positive": 1,
+   "false_positive": 0,
+   "false_negative": 0,
+   "precision": 1.0,
+   "recall": 1.0,
+   "f1": 1.0
+  },
+  {
+   "type": "STOP_DUPLICATED",
+   "injected": 1,
+   "true_positive": 1,
+   "false_positive": 0,
+   "false_negative": 0,
+   "precision": 1.0,
+   "recall": 1.0,
+   "f1": 1.0
+  },
+  {
+   "type": "ARRIVAL_BEFORE_DEPARTURE",
+   "injected": 1,
+   "true_positive": 1,
+   "false_positive": 0,
+   "false_negative": 0,
+   "precision": 1.0,
+   "recall": 1.0,
+   "f1": 1.0
+  },
+  {
+   "type": "SHIFT_EXCEEDED",
+   "injected": 1,
+   "true_positive": 1,
+   "false_positive": 0,
+   "false_negative": 0,
+   "precision": 1.0,
+   "recall": 1.0,
+   "f1": 1.0
+  },
+  {
+   "type": "COORD_OUTSIDE_REGION",
+   "injected": 1,
+   "true_positive": 1,
+   "false_positive": 0,
+   "false_negative": 0,
+   "precision": 1.0,
+   "recall": 1.0,
+   "f1": 1.0
+  },
+  {
+   "type": "INCOMPATIBLE_VEHICLE",
+   "injected": 1,
+   "true_positive": 1,
+   "false_positive": 0,
+   "false_negative": 0,
+   "precision": 1.0,
+   "recall": 1.0,
+   "f1": 1.0
+  },
+  {
+   "type": "WINDOW_VIOLATION",
+   "injected": 1,
+   "true_positive": 1,
+   "false_positive": 0,
+   "false_negative": 0,
+   "precision": 1.0,
+   "recall": 1.0,
+   "f1": 1.0
+  },
+  {
+   "type": "MISSING_PARENT",
+   "injected": 1,
+   "true_positive": 1,
+   "false_positive": 0,
+   "false_negative": 0,
+   "precision": 1.0,
+   "recall": 1.0,
+   "f1": 1.0
+  },
+  {
+   "type": "DUPLICATE_ACTIVE_ASSIGNMENT",
+   "injected": 1,
+   "true_positive": 1,
+   "false_positive": 0,
+   "false_negative": 0,
+   "precision": 1.0,
+   "recall": 1.0,
+   "f1": 1.0
+  },
+  {
+   "type": "INVALID_LIFECYCLE",
+   "injected": 1,
+   "true_positive": 1,
+   "false_positive": 0,
+   "false_negative": 0,
+   "precision": 1.0,
+   "recall": 1.0,
+   "f1": 1.0
+  },
+  {
+   "type": "DERIVED_MISMATCH",
+   "injected": 1,
+   "true_positive": 1,
+   "false_positive": 0,
+   "false_negative": 0,
+   "precision": 1.0,
+   "recall": 1.0,
+   "f1": 1.0
+  }
+ ],
+ "false_positives": {
+  "CAPACITY_EXCEEDED": [],
+  "STOP_OMITTED": [],
+  "STOP_DUPLICATED": [],
+  "ARRIVAL_BEFORE_DEPARTURE": [],
+  "SHIFT_EXCEEDED": [],
+  "COORD_OUTSIDE_REGION": [],
+  "INCOMPATIBLE_VEHICLE": [],
+  "WINDOW_VIOLATION": [],
+  "MISSING_PARENT": [],
+  "DUPLICATE_ACTIVE_ASSIGNMENT": [],
+  "INVALID_LIFECYCLE": [],
+  "DERIVED_MISMATCH": []
+ },
+ "false_negatives": {
+  "CAPACITY_EXCEEDED": [],
+  "STOP_OMITTED": [],
+  "STOP_DUPLICATED": [],
+  "ARRIVAL_BEFORE_DEPARTURE": [],
+  "SHIFT_EXCEEDED": [],
+  "COORD_OUTSIDE_REGION": [],
+  "INCOMPATIBLE_VEHICLE": [],
+  "WINDOW_VIOLATION": [],
+  "MISSING_PARENT": [],
+  "DUPLICATE_ACTIVE_ASSIGNMENT": [],
+  "INVALID_LIFECYCLE": [],
+  "DERIVED_MISMATCH": []
+ },
+ "baseline_check": {
+  "issues": 0,
+  "note": "valid baseline must produce zero issues"
+ },
+ "issues_detected_total": 27
+}

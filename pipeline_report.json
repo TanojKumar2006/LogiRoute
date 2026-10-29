@@ -1,0 +1,395 @@
+{
+ "seed": 20261022,
+ "scales": {
+  "starter": {
+   "row_counts": {
+    "zones": 9,
+    "customer_sites": 40,
+    "delivery_partners": 5,
+    "vehicles": 12,
+    "vehicle_capacities": 12,
+    "drivers": 14,
+    "shifts": 60,
+    "traffic_scenarios": 15,
+    "travel_time_matrix": 1215,
+    "orders": 111,
+    "deliveries": 120,
+    "time_windows": 125,
+    "planning_runs": 5,
+    "routes": 37,
+    "route_stops": 122,
+    "delivery_outcomes": 125,
+    "delivery_events": 616,
+    "planning_exceptions": 12
+   },
+   "checksums": {
+    "zones": "f78d67e4d347f343e094c6ecae409bf3c8c441c3587185a33fdc250b4d640e72",
+    "customer_sites": "04b9d890359a750dea514ae21d5374178a70f4600f87663fb19cbcc752e240c0",
+    "delivery_partners": "dacbd72cf2d755bb4a20d1299cd2c3a3a1cc3fbe8b44deec601dbb8644fee73b",
+    "vehicles": "4df4771216ef6490fd5e4c8e02e8c88bbd2eb14dd4d7f1e23f3733dce3556bb8",
+    "vehicle_capacities": "e1cb40d227358e7e035b14ddec741aaecef4946903d1b8749e31ad9dccbfea85",
+    "drivers": "d08ed441dadc6a5c087c2c50a7fe5ad893fe5a21ddef5dbedab6d015fcacc534",
+    "shifts": "37f52d75b2ba9a08cc8c506d76fcb54c4ed390c04da09808af9552dd7962c293",
+    "traffic_scenarios": "dd973bb7d5ae05361486303238fa2dc38e1b000260e35077ff55405e44a461fe",
+    "travel_time_matrix": "74dfc94d5547f447ccd41e4f7a5ddac09c90d58b6ab7b7973b0f7aed8adda97f",
+    "orders": "a92812c76084e6c786d200dc076e3ccbe291c31233a8b51edfe6d3dac58c2415",
+    "deliveries": "6556ce519bd091626f43d4516e7e95936b84881daaeaf6667c3171642811e340",
+    "time_windows": "1d242a721f3aeca228fcbdd2cb1af34244cda0404dc1cd82076d2a8b80ef3c5d",
+    "planning_runs": "91215bc5108dd4380778bdcedfd4c0f3b51bc8282eb5525127ab67fc2fddf051",
+    "routes": "41b4838751f6d003ba7edf53518d0664cbae165589491b9e1126379eb5a19809",
+    "route_stops": "7672a1075b63e18e77cc4e255e3e97ac136ec2918ff41fbb009d438748087c67",
+    "delivery_outcomes": "bf72910dafd775fcbb7322dedabea77129bc276ca9457d795c89625b4d7e68fb",
+    "delivery_events": "cab91c478524b6409dd0a5e25e0313c5475f61578f161a1d6a76a5144b8fdce2",
+    "planning_exceptions": "85b37ff9bd23bc99868505dde43134dbd3152f2234efda9410bc25ee2bcf381c"
+   },
+   "run2_identical": true,
+   "ground_truth_identical": true,
+   "rule_issues_in_baseline": 0,
+   "integrity_violations": 0,
+   "sqlite_load_ok": true,
+   "sqlite_fk_violations": 0,
+   "final_delivery_status": {
+    "DELIVERED": 113,
+    "FAILED": 4,
+    "UNSERVED": 3
+   },
+   "attempt_outcomes": {
+    "DELIVERED": 113,
+    "FAILED:CUSTOMER_UNAVAILABLE": 3,
+    "FAILED:LATE_WINDOW_CLOSED": 6,
+    "UNSERVED:INSUFFICIENT_FLEET_CAPACITY": 3
+   },
+   "evaluation": {
+    "overall": {
+     "injected": 12,
+     "true_positive": 12,
+     "false_positive": 0,
+     "false_negative": 0,
+     "precision": 1.0,
+     "recall": 1.0,
+     "f1": 1.0,
+     "secondary_findings_ignored": 14
+    },
+    "per_type": [
+     {
+      "type": "CAPACITY_EXCEEDED",
+      "injected": 1,
+      "true_positive": 1,
+      "false_positive": 0,
+      "false_negative": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+     },
+     {
+      "type": "STOP_OMITTED",
+      "injected": 1,
+      "true_positive": 1,
+      "false_positive": 0,
+      "false_negative": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+     },
+     {
+      "type": "STOP_DUPLICATED",
+      "injected": 1,
+      "true_positive": 1,
+      "false_positive": 0,
+      "false_negative": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+     },
+     {
+      "type": "ARRIVAL_BEFORE_DEPARTURE",
+      "injected": 1,
+      "true_positive": 1,
+      "false_positive": 0,
+      "false_negative": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+     },
+     {
+      "type": "SHIFT_EXCEEDED",
+      "injected": 1,
+      "true_positive": 1,
+      "false_positive": 0,
+      "false_negative": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+     },
+     {
+      "type": "COORD_OUTSIDE_REGION",
+      "injected": 1,
+      "true_positive": 1,
+      "false_positive": 0,
+      "false_negative": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+     },
+     {
+      "type": "INCOMPATIBLE_VEHICLE",
+      "injected": 1,
+      "true_positive": 1,
+      "false_positive": 0,
+      "false_negative": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+     },
+     {
+      "type": "WINDOW_VIOLATION",
+      "injected": 1,
+      "true_positive": 1,
+      "false_positive": 0,
+      "false_negative": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+     },
+     {
+      "type": "MISSING_PARENT",
+      "injected": 1,
+      "true_positive": 1,
+      "false_positive": 0,
+      "false_negative": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+     },
+     {
+      "type": "DUPLICATE_ACTIVE_ASSIGNMENT",
+      "injected": 1,
+      "true_positive": 1,
+      "false_positive": 0,
+      "false_negative": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+     },
+     {
+      "type": "INVALID_LIFECYCLE",
+      "injected": 1,
+      "true_positive": 1,
+      "false_positive": 0,
+      "false_negative": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+     },
+     {
+      "type": "DERIVED_MISMATCH",
+      "injected": 1,
+      "true_positive": 1,
+      "false_positive": 0,
+      "false_negative": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+     }
+    ],
+    "baseline_issues": 0
+   }
+  },
+  "full": {
+   "row_counts": {
+    "zones": 25,
+    "customer_sites": 500,
+    "delivery_partners": 5,
+    "vehicles": 100,
+    "vehicle_capacities": 107,
+    "drivers": 120,
+    "shifts": 2850,
+    "traffic_scenarios": 90,
+    "travel_time_matrix": 56250,
+    "orders": 1818,
+    "deliveries": 2000,
+    "time_windows": 2174,
+    "planning_runs": 30,
+    "routes": 611,
+    "route_stops": 2153,
+    "delivery_outcomes": 2174,
+    "delivery_events": 10807,
+    "planning_exceptions": 227
+   },
+   "checksums": {
+    "zones": "09b91de75f9180407f7bafdc6230e8b4cd0210c7de9a3a0f9583bfc664e58ed1",
+    "customer_sites": "6bb0c2dadc86ed112d0cc19f10ba16b37801b6c40ad3e4f175917c6671b694b2",
+    "delivery_partners": "dacbd72cf2d755bb4a20d1299cd2c3a3a1cc3fbe8b44deec601dbb8644fee73b",
+    "vehicles": "369fbd546c824b2a3f9df19ef1b989baed7b98445ef2f4fa9f16aab7da9592b8",
+    "vehicle_capacities": "933a2ac353766620fb74be8a15b2a8b5a968cd048727062f2ab4573b2f329c43",
+    "drivers": "4440582a1dbd381261b5ad46c0654ed925bd48b4af7baa443d4ff051cff65a27",
+    "shifts": "0e433f7651615ea45af74a528a08b9cb01b9371c457317185f9f06dc4b30c64f",
+    "traffic_scenarios": "3cda1ceb5b5df48aa62a38bc645a918474f315295a23fa5f0426038f2203747b",
+    "travel_time_matrix": "0242c1bc3e2dddf0697026aad9999f3280182dd323a82bc568f6ca887b088d76",
+    "orders": "8fc8eedf901028076764f2d546a82e5741e405a313c894c550194f81ba39bd08",
+    "deliveries": "0994901081568519e80e19f9d90e0447a1719382130b157dec1cc6bd2b93d306",
+    "time_windows": "ac90555bff3c0ff63718058f3cd3f3bf1cc7e87bf1c352808e5d3399ee5da17a",
+    "planning_runs": "23f8152e94e161574be50ba44a0a8e43e68668bee37c19b0b21de1ba28b06cc7",
+    "routes": "2c0a5eb3aa9111a9401091a21a485586f5d1f34a33e7944b5c3c1f5dd4e27840",
+    "route_stops": "43668d77aa6b02e1d425c850dba5d7a03673cd9c493e92d83b5ad3d6f879aae5",
+    "delivery_outcomes": "ba5d8aa28eee6c09535347a4942cd82fdb1164d6e531e549c22d1d9ce18784e2",
+    "delivery_events": "65ac3463d21cf6b17ea7e8844bc54e91b8e3dbc5b00092e837ba9b4f67b1c4d0",
+    "planning_exceptions": "d5bbaec0def860d33f850347961fcc43d0ba51d624afe9d74dd03097e55628a9"
+   },
+   "run2_identical": true,
+   "ground_truth_identical": true,
+   "rule_issues_in_baseline": 0,
+   "integrity_violations": 0,
+   "sqlite_load_ok": true,
+   "sqlite_fk_violations": 0,
+   "final_delivery_status": {
+    "DELIVERED": 1947,
+    "UNSERVED": 21,
+    "FAILED": 32
+   },
+   "attempt_outcomes": {
+    "DELIVERED": 1947,
+    "FAILED:LATE_WINDOW_CLOSED": 144,
+    "FAILED:CUSTOMER_UNAVAILABLE": 54,
+    "UNSERVED:CAPACITY_EXCEEDS_FLEET": 10,
+    "FAILED:ACCESS_BLOCKED": 8,
+    "UNSERVED:NO_ELIGIBLE_VEHICLE": 11
+   },
+   "evaluation": {
+    "overall": {
+     "injected": 60,
+     "true_positive": 60,
+     "false_positive": 0,
+     "false_negative": 0,
+     "precision": 1.0,
+     "recall": 1.0,
+     "f1": 1.0,
+     "secondary_findings_ignored": 81
+    },
+    "per_type": [
+     {
+      "type": "CAPACITY_EXCEEDED",
+      "injected": 5,
+      "true_positive": 5,
+      "false_positive": 0,
+      "false_negative": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+     },
+     {
+      "type": "STOP_OMITTED",
+      "injected": 5,
+      "true_positive": 5,
+      "false_positive": 0,
+      "false_negative": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+     },
+     {
+      "type": "STOP_DUPLICATED",
+      "injected": 5,
+      "true_positive": 5,
+      "false_positive": 0,
+      "false_negative": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+     },
+     {
+      "type": "ARRIVAL_BEFORE_DEPARTURE",
+      "injected": 5,
+      "true_positive": 5,
+      "false_positive": 0,
+      "false_negative": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+     },
+     {
+      "type": "SHIFT_EXCEEDED",
+      "injected": 5,
+      "true_positive": 5,
+      "false_positive": 0,
+      "false_negative": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+     },
+     {
+      "type": "COORD_OUTSIDE_REGION",
+      "injected": 5,
+      "true_positive": 5,
+      "false_positive": 0,
+      "false_negative": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+     },
+     {
+      "type": "INCOMPATIBLE_VEHICLE",
+      "injected": 5,
+      "true_positive": 5,
+      "false_positive": 0,
+      "false_negative": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+     },
+     {
+      "type": "WINDOW_VIOLATION",
+      "injected": 5,
+      "true_positive": 5,
+      "false_positive": 0,
+      "false_negative": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+     },
+     {
+      "type": "MISSING_PARENT",
+      "injected": 5,
+      "true_positive": 5,
+      "false_positive": 0,
+      "false_negative": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+     },
+     {
+      "type": "DUPLICATE_ACTIVE_ASSIGNMENT",
+      "injected": 5,
+      "true_positive": 5,
+      "false_positive": 0,
+      "false_negative": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+     },
+     {
+      "type": "INVALID_LIFECYCLE",
+      "injected": 5,
+      "true_positive": 5,
+      "false_positive": 0,
+      "false_negative": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+     },
+     {
+      "type": "DERIVED_MISMATCH",
+      "injected": 5,
+      "true_positive": 5,
+      "false_positive": 0,
+      "false_negative": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+     }
+    ],
+    "baseline_issues": 0
+   }
+  }
+ }
+}
