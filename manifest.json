@@ -1,0 +1,74 @@
+{
+ "customer_sites": {
+  "rows": 40,
+  "sha256": "04b9d890359a750dea514ae21d5374178a70f4600f87663fb19cbcc752e240c0"
+ },
+ "deliveries": {
+  "rows": 120,
+  "sha256": "6556ce519bd091626f43d4516e7e95936b84881daaeaf6667c3171642811e340"
+ },
+ "delivery_events": {
+  "rows": 616,
+  "sha256": "cab91c478524b6409dd0a5e25e0313c5475f61578f161a1d6a76a5144b8fdce2"
+ },
+ "delivery_outcomes": {
+  "rows": 125,
+  "sha256": "bf72910dafd775fcbb7322dedabea77129bc276ca9457d795c89625b4d7e68fb"
+ },
+ "delivery_partners": {
+  "rows": 5,
+  "sha256": "dacbd72cf2d755bb4a20d1299cd2c3a3a1cc3fbe8b44deec601dbb8644fee73b"
+ },
+ "drivers": {
+  "rows": 14,
+  "sha256": "d08ed441dadc6a5c087c2c50a7fe5ad893fe5a21ddef5dbedab6d015fcacc534"
+ },
+ "orders": {
+  "rows": 111,
+  "sha256": "a92812c76084e6c786d200dc076e3ccbe291c31233a8b51edfe6d3dac58c2415"
+ },
+ "planning_exceptions": {
+  "rows": 12,
+  "sha256": "85b37ff9bd23bc99868505dde43134dbd3152f2234efda9410bc25ee2bcf381c"
+ },
+ "planning_runs": {
+  "rows": 5,
+  "sha256": "91215bc5108dd4380778bdcedfd4c0f3b51bc8282eb5525127ab67fc2fddf051"
+ },
+ "route_stops": {
+  "rows": 122,
+  "sha256": "7672a1075b63e18e77cc4e255e3e97ac136ec2918ff41fbb009d438748087c67"
+ },
+ "routes": {
+  "rows": 37,
+  "sha256": "41b4838751f6d003ba7edf53518d0664cbae165589491b9e1126379eb5a19809"
+ },
+ "shifts": {
+  "rows": 60,
+  "sha256": "37f52d75b2ba9a08cc8c506d76fcb54c4ed390c04da09808af9552dd7962c293"
+ },
+ "time_windows": {
+  "rows": 125,
+  "sha256": "1d242a721f3aeca228fcbdd2cb1af34244cda0404dc1cd82076d2a8b80ef3c5d"
+ },
+ "traffic_scenarios": {
+  "rows": 15,
+  "sha256": "dd973bb7d5ae05361486303238fa2dc38e1b000260e35077ff55405e44a461fe"
+ },
+ "travel_time_matrix": {
+  "rows": 1215,
+  "sha256": "74dfc94d5547f447ccd41e4f7a5ddac09c90d58b6ab7b7973b0f7aed8adda97f"
+ },
+ "vehicle_capacities": {
+  "rows": 12,
+  "sha256": "e1cb40d227358e7e035b14ddec741aaecef4946903d1b8749e31ad9dccbfea85"
+ },
+ "vehicles": {
+  "rows": 12,
+  "sha256": "4df4771216ef6490fd5e4c8e02e8c88bbd2eb14dd4d7f1e23f3733dce3556bb8"
+ },
+ "zones": {
+  "rows": 9,
+  "sha256": "f78d67e4d347f343e094c6ecae409bf3c8c441c3587185a33fdc250b4d640e72"
+ }
+}

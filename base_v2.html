@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><title>LogiRoute – Delivery Operations</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);--bg:#f4f6fa;--sf:#fff;--bd:#e3e7ee;--tx:#1b2433;--mu:#6b778c;--ac:#2563eb;--acs:#e8f0fe;--ok:#16a34a;--wr:#d97706;--er:#dc2626;--map:#eef2f7;color-scheme:light}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#0f1520;--sf:#171f2d;--bd:#2a3547;--tx:#e6ebf3;--mu:#8e9bb2;--ac:#6b9cff;--acs:#1c2a48;--map:#1b2536;color-scheme:dark}}
+:root[data-theme=dark]{--bg:#0f1520;--sf:#171f2d;--bd:#2a3547;--tx:#e6ebf3;--mu:#8e9bb2;--ac:#6b9cff;--acs:#1c2a48;--map:#1b2536;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--tx);font:13px/1.45 "Segoe UI",system-ui,-apple-system,sans-serif}
+button,input,select{font:inherit;color:inherit}button{cursor:pointer}
+:focus-visible{outline:2px solid var(--ac);outline-offset:2px}
+.login{min-height:100vh;display:grid;place-items:center;padding:16px}
+.card{background:var(--sf);border:1px solid var(--bd);border-radius:10px;box-shadow:0 1px 2px rgba(20,30,50,.05)}
+.login .card{padding:24px;width:min(420px,100%)}
+.app{display:grid;grid-template-columns:210px 1fr;min-height:100vh}
+aside{background:var(--sf);border-right:1px solid var(--bd);padding:12px 8px;position:sticky;top:0;height:100vh;overflow:auto}
+.logo{display:flex;gap:8px;align-items:center;font-weight:700;font-size:15px;padding:4px 8px 14px}
+.logo i{background:var(--ac);color:#fff;border-radius:7px;width:26px;height:26px;display:grid;place-items:center;font-style:normal}
+nav button{display:flex;width:100%;gap:9px;align-items:center;border:0;background:none;padding:8px 10px;border-radius:7px;text-align:left;color:var(--mu)}
+nav button:hover{background:var(--bg)}nav button.on{background:var(--acs);color:var(--ac);font-weight:600}
+main{padding:0 16px 24px;min-width:0}
+header.top{display:flex;gap:10px;align-items:center;padding:10px 0;position:sticky;top:0;background:var(--bg);z-index:5;flex-wrap:wrap}
+.menu{display:none}.sp{flex:1}
+.pill{border:1px solid var(--bd);background:var(--sf);border-radius:20px;padding:4px 10px}
+.btn{border:1px solid var(--bd);background:var(--sf);border-radius:7px;padding:6px 11px}
+.btn.p{background:var(--ac);border-color:var(--ac);color:#fff}.btn:disabled{opacity:.45;cursor:not-allowed}
+.btn.d{color:var(--er)}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:12px}
+.kpi{padding:12px 14px;display:flex;justify-content:space-between;align-items:center}.kpi b{font-size:24px}.kpi span{color:var(--mu)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.pad{padding:14px}h2{font-size:15px;margin:0 0 10px}h3{margin:0 0 6px;font-size:13px}
+.ship{border:1px solid var(--bd);border-radius:9px;padding:10px;margin-bottom:8px;display:flex;gap:8px;cursor:pointer;background:var(--sf)}
+.ship.on{border-color:var(--ac);box-shadow:0 0 0 2px var(--acs)}.ship .tr{width:150px;flex:none}
+.tag{background:var(--bg);border:1px solid var(--bd);border-radius:6px;padding:1px 7px;font-size:11px;color:var(--mu)}
+.st{border-radius:20px;padding:2px 9px;font-size:11px;font-weight:600;white-space:nowrap}
+.s-Pending{background:#fef3c7;color:#92400e}.s-Planned{background:#e0e7ff;color:#3730a3}.s-Assigned{background:#cffafe;color:#155e75}
+.s-In\ Transit{background:#dbeafe;color:#1d4ed8}.s-Delivered{background:#dcfce7;color:#166534}.s-Failed{background:#fee2e2;color:#991b1b}
+.s-Unserved{background:#f3e8ff;color:#6b21a8}.s-Exception{background:#ffedd5;color:#9a3412}
+.mapbox{background:var(--map);border-radius:9px;position:relative;overflow:hidden;border:1px solid var(--bd)}
+.mapbox svg{display:block;width:100%;height:auto}
+.det{position:absolute;left:8px;right:8px;bottom:8px;background:var(--sf);border:1px solid var(--bd);border-radius:9px;padding:8px 10px;display:grid;grid-template-columns:repeat(4,1fr);gap:6px;font-size:11px}
+.det small{color:var(--mu);display:block}
+.note{font-size:11px;color:var(--mu);margin-top:6px}
+.tw{overflow-x:auto}table{width:100%;border-collapse:collapse;min-width:760px}
+th,td{text-align:left;padding:8px 8px;border-bottom:1px solid var(--bd);white-space:nowrap}th{color:var(--mu);font-weight:600;cursor:pointer}
+input[type=search],input[type=text],input[type=number],input[type=password],select{border:1px solid var(--bd);background:var(--sf);border-radius:7px;padding:6px 9px;max-width:100%}
+.row{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:10px}
+.bar{height:8px;background:var(--bd);border-radius:5px;overflow:hidden;min-width:80px}.bar i{display:block;height:100%;background:var(--ac)}
+.grid3{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:10px}
+.toast{position:fixed;right:14px;bottom:calc(14px + env(safe-area-inset-bottom,0px));background:var(--tx);color:var(--bg);padding:9px 14px;border-radius:8px;z-index:20}
+.dlg{position:fixed;inset:0;background:rgba(0,0,0,.45);display:grid;place-items:center;z-index:30;padding:16px}.dlg .card{padding:18px;max-width:420px}
+@media(max-width:900px){.app{grid-template-columns:1fr}aside{position:fixed;left:-240px;width:230px;z-index:25;transition:left .2s}aside.open{left:0}.menu{display:inline-block}.two{grid-template-columns:1fr}.kpis{grid-template-columns:1fr 1fr}.ship .tr{width:110px}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style></head><body><div id="root"></div>
+<script>
+// ---------- helpers & synthetic data (seeded, deterministic) ----------
+const TODAY=new Date('2026-10-28T09:00:00Z');
+let seed=20261022;const rnd=()=>(seed=(seed*1664525+1013904223)%4294967296)/4294967296;
+const $=s=>s;const fmtD=d=>d.toLocaleDateString('en-IN',{day:'2-digit',month:'short',year:'numeric',timeZone:'Asia/Kolkata'});
+const C={Kadapa:[14.47,78.82],Chennai:[13.08,80.27],Bengaluru:[12.97,77.59],Hyderabad:[17.38,78.48],Tirupati:[13.63,79.42],Vijayawada:[16.51,80.65],Kurnool:[15.83,78.04],Nellore:[14.44,79.99],Visakhapatnam:[17.69,83.22],Coimbatore:[11.02,76.96],Mysuru:[12.3,76.64],Anantapur:[14.68,77.6]};
+const km=(a,b)=>{const R=6371,t=x=>x*Math.PI/180,dl=t(b[0]-a[0]),dn=t(b[1]-a[1]);const h=Math.sin(dl/2)**2+Math.cos(t(a[0]))*Math.cos(t(b[0]))*Math.sin(dn/2)**2;return Math.round(2*R*Math.asin(Math.sqrt(h))*1.25)};
+const CARR=['BlueDart','DTDC','Delhivery','India Post','Ecom Express'],CAT=['Books','Electronics','Equipment','Home Décor','Children’s','Groceries','Pharma'];
+const DRV=['Ravi Kumar','Anil Reddy','Sana Sheikh','Mohan Rao','Priya Nair','Imran Khan','Lakshmi Devi','Suresh Babu'];
+const VEH=[];for(let i=1;i<=8;i++)VEH.push({id:'VEH-00000'+i,type:i%3?'Semi-trailer':'Box truck',cap:i%3?18000:6000,vol:i%3?60:24,driver:'DRV-00000'+i,dname:DRV[i-1],status:i==7?'Maintenance':'Available',shift:'06:00–14:00',color:['#2563eb','#0d9488','#c2410c','#7c3aed'][i%4]});
+const stat=['Pending','Planned','Assigned','In Transit','In Transit','Delivered','Failed','Pending'];
+const dests=Object.keys(C).filter(k=>k!='Kadapa');
+const SH=[];for(let i=1;i<=36;i++){const d=dests[Math.floor(rnd()*dests.length)],w=Math.round(rnd()*2400+20),st=stat[Math.floor(rnd()*stat.length)];
+const dist=km(C.Kadapa,C[d]),v=['Pending'].includes(st)?null:VEH[Math.floor(rnd()*6)];
+const eta=new Date(TODAY.getTime()+((st=='Delivered'||st=='Failed')?-1:1)*(Math.ceil(dist/55/8)+Math.floor(rnd()*2))*864e5);
+SH.push({id:'DEL-2026-'+String(i).padStart(6,'0'),ord:'ORD-2026-'+String(i).padStart(6,'0'),cat:CAT[i%7],carrier:CARR[i%5],dest:d,dist,w,val:Math.round(w*(40+rnd()*60)),st,veh:v,eta,prog:st=='In Transit'?+(0.2+rnd()*.6).toFixed(2):st=='Delivered'?1:0,prio:1+i%3,win:'09:00–17:00',reason:st=='Failed'?'Customer unavailable':''})}
+const EV=SH.map(s=>({id:s.id,t:'Created'}));
+let AUD=[{t:new Date(TODAY),a:'system',x:'Dataset generated (seed 20261022)',e:'dataset'}];
+let EXC=[{id:'EXC-001',type:'Capacity exceeded',sev:'High',ent:'RTE-2026-000004',txt:'Planned load 19,400 kg vs capacity 18,000 kg',act:'Move 1,400 kg to another vehicle',res:'Open'},
+{id:'EXC-002',type:'Time window missed',sev:'Medium',ent:'DEL-2026-000009',txt:'ETA 17:40 is after window end 17:00',act:'Re-sequence stops or contact customer',res:'Open'},
+{id:'EXC-003',type:'Driver shift exceeded',sev:'High',ent:'DRV-000003',txt:'Route ends 15:10, shift ends 14:00',act:'Split route across two drivers',res:'Open'}];
+SH.filter(s=>s.st=='Failed').forEach((s,i)=>EXC.push({id:'EXC-1'+i,type:'Failed delivery',sev:'Medium',ent:s.id,txt:s.reason,act:'Reschedule delivery',res:'Open'}));
+const PERM={admin:['dash','ship','plan','live','cust','orders','fleet','drivers','exc','ana','aud','set'],planner:['dash','ship','plan','live','cust','orders','fleet','drivers','exc','ana'],operator:['dash','ship','live','fleet','drivers','exc'],analyst:['dash','ship','ana','exc','aud'],viewer:['dash','ship']};
+const NAV={dash:['▦','Dashboard'],ship:['📦','Shipments'],plan:['🧭','Route Planner'],live:['📡','Live Tracking'],cust:['📍','Customer Sites'],orders:['🧾','Orders'],fleet:['🚚','Vehicles'],drivers:['👤','Drivers & Shifts'],exc:['⚠','Exceptions'],ana:['📊','Analytics'],aud:['🗂','Audit History'],set:['⚙','Settings']};
+const CAN={plan:['admin','planner'],run:['admin','planner','operator'],resolve:['admin','planner','operator'],cfg:['admin'],create:['admin','planner']};
+const S={user:null,role:null,page:'dash',sel:SH.find(s=>s.st=='In Transit').id,q:'',f:'All',sort:'id',asc:true,pg:0,plan:null,pick:new Set(),theme:'',menu:false,tz:'Asia/Kolkata',err:''};
+const can=a=>CAN[a].includes(S.role);
+const log=(a,x,e)=>AUD.unshift({t:new Date(),a:S.user,x,e});
+function toast(m){const t=document.createElement('div');t.className='toast';t.setAttribute('role','status');t.textContent=m;document.body.append(t);setTimeout(()=>t.remove(),2600)}
+const badge=s=>`<span class="st s-${s}">${s}</span>`;
+function truck(c='#2563eb',w=150){return `<svg viewBox="0 0 220 80" width="${w}" role="img" aria-label="Delivery truck"><defs><linearGradient id="g${c.slice(1)}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#cfd6e1"/></linearGradient></defs>
+<ellipse cx="110" cy="74" rx="100" ry="4" fill="#0002"/><rect x="4" y="12" width="136" height="48" rx="3" fill="url(#g${c.slice(1)})" stroke="#aab4c3"/>
+<rect x="4" y="38" width="136" height="7" fill="${c}"/><rect x="8" y="22" width="40" height="6" rx="2" fill="${c}" opacity=".85"/>
+<path d="M146 60V30l10-13h28l12 17v26z" fill="${c}"/><path d="M158 21h22l8 13h-30z" fill="#bfe3ff" stroke="#fff" stroke-width="1.5"/>
+<rect x="141" y="58" width="76" height="6" rx="2" fill="#2b3342"/><rect x="209" y="46" width="7" height="6" rx="1" fill="#fde68a"/>
+${[26,44,100,118,172].map(x=>`<g><circle cx="${x}" cy="64" r="9" fill="#1f2530"/><circle cx="${x}" cy="64" r="4" fill="#9aa5b8"/></g>`).join('')}</svg>`}
+function mapSvg(list,selId){const P=c=>[40+(c[1]-76)*(320/7.5),270-(c[0]-11)*(250/7)];const dp=P(C.Kadapa);
+let o=`<svg viewBox="0 0 400 290" role="img" aria-label="Route map (synthetic coordinates)"><rect width="400" height="290" fill="none"/>`;
+for(const [n,c] of Object.entries(C)){const p=P(c);o+=`<circle cx="${p[0]}" cy="${p[1]}" r="3" fill="var(--mu)"/><text x="${p[0]+5}" y="${p[1]+3}" font-size="8" fill="var(--mu)">${n}</text>`}
+list.forEach(s=>{const p=P(C[s.dest]),on=s.id==selId;const mx=(dp[0]+p[0])/2+12,my=(dp[1]+p[1])/2-14;
+o+=`<path d="M${dp[0]} ${dp[1]} Q${mx} ${my} ${p[0]} ${p[1]}" fill="none" stroke="${on?'var(--ac)':'var(--bd)'}" stroke-width="${on?2.6:1.2}" ${s.st=='Planned'||s.st=='Assigned'?'stroke-dasharray="4 3"':''}/>`;
+if(on){const t=s.prog,x=(1-t)**2*dp[0]+2*(1-t)*t*mx+t*t*p[0],y=(1-t)**2*dp[1]+2*(1-t)*t*my+t*t*p[1];
+o+=`<circle cx="${p[0]}" cy="${p[1]}" r="6" fill="var(--ac)"/><g transform="translate(${x-9},${y-9})"><rect width="18" height="18" rx="4" fill="#111"/><text x="9" y="13" text-anchor="middle" font-size="11">🚚</text></g>`}});
+return o+`<rect x="${dp[0]-6}" y="${dp[1]-6}" width="12" height="12" fill="#16a34a" stroke="#fff"/><text x="${dp[0]-30}" y="${dp[1]+18}" font-size="9" font-weight="700" fill="var(--tx)">Depot Kadapa</text></svg>`}
+const sel=()=>SH.find(s=>s.id==S.sel);
+function filtered(){let l=SH.filter(s=>(S.f=='All'||s.st==S.f)&&(s.id+s.dest+s.carrier+s.cat+(s.veh?.dname||'')).toLowerCase().includes(S.q.toLowerCase()));
+l.sort((a,b)=>{const x=a[S.sort],y=b[S.sort];return (x>y?1:x<y?-1:0)*(S.asc?1:-1)});return l}
+// ---------- pages ----------
+function kpis(){const n=s=>SH.filter(x=>s.includes(x.st)).length;
+const k=[['Total deliveries',SH.length],['Assigned',n(['Assigned','Planned','In Transit'])],['Pending',n(['Pending'])],['Delivered',n(['Delivered'])]];
+return `<div class="kpis">${k.map(x=>`<div class="card kpi"><span>${x[0]}</span><b>${x[1]}</b></div>`).join('')}</div>
+<div class="row"><span class="tag">Failed ${n(['Failed'])}</span><span class="tag">Unserved ${n(['Unserved'])}</span><span class="tag">Open exceptions ${EXC.filter(e=>e.res=='Open').length}</span></div>`}
+function shipCard(s){return `<div class="ship ${s.id==S.sel?'on':''}" tabindex="0" onclick="S.sel='${s.id}';R()" onkeydown="if(event.key=='Enter'){S.sel='${s.id}';R()}">
+<div style="flex:1;min-width:0"><small style="color:var(--mu)">Shipment ID</small><br><b>${s.id}</b><div class="row" style="margin:4px 0"><span class="tag">${s.cat}</span><span class="tag">${s.carrier}</span>${badge(s.st)}</div>
+<div>Kadapa → ${s.dest}</div><div class="note">${s.dist} km · ${s.veh?s.veh.id+' · '+s.veh.dname:'No vehicle yet'}<br><b>${s.st=='Delivered'?'Delivered':s.st=='Failed'?'Attempted':'Expected'}: ${fmtD(s.eta)}</b></div></div>
+<div class="tr">${truck(s.veh?s.veh.color:'#64748b',150)}</div></div>`}
+function detail(s){return `<div class="det"><div><small>Driver</small>${s.veh?s.veh.dname:'—'}</div><div><small>Tracking</small>${s.id}</div><div><small>Weight</small>${s.w} kg</div><div><small>Value</small>₹${s.val.toLocaleString('en-IN')}</div></div>`}
+function table(list,pg=true){const per=8,pages=Math.max(1,Math.ceil(list.length/per)),rows=pg?list.slice(S.pg*per,S.pg*per+per):list;
+const th=(k,l)=>`<th onclick="S.sort='${k}';S.asc=S.sort=='${k}'?!S.asc:true;R()">${l}${S.sort==k?(S.asc?' ▴':' ▾'):''}</th>`;
+return `<div class="row"><input type="search" aria-label="Search" placeholder="Search tracking, city, driver…" value="${S.q}" oninput="S.q=this.value;S.pg=0;R(1)"><select aria-label="Status filter" onchange="S.f=this.value;S.pg=0;R()">${['All','Pending','Planned','Assigned','In Transit','Delivered','Failed','Unserved'].map(x=>`<option ${x==S.f?'selected':''}>${x}</option>`).join('')}</select><button class="btn" onclick="exportCsv()">Export CSV</button></div>
+<div class="tw"><table><thead><tr>${th('id','Tracking')}${th('carrier','Carrier')}${th('cat','Category')}${th('eta','Delivery date')}${th('dest','Destination')}${th('w','Weight')}${th('val','Value')}${th('st','Status')}<th>Vehicle</th><th>Driver</th><th>Action</th></tr></thead><tbody>
+${rows.map(s=>`<tr><td><b>${s.id}</b></td><td>${s.carrier}</td><td>${s.cat}</td><td>${fmtD(s.eta)}</td><td>${esc(s.rec.name)}, ${esc(s.rec.addr)}</td><td>${s.w} kg</td><td>₹${s.val.toLocaleString('en-IN')}</td><td>${badge(s.st)}</td><td>${s.veh?.id||'—'}</td><td>${s.veh?.dname||'—'}</td><td><button class="btn" onclick="S.sel='${s.id}';S.page='live';R()">Track</button></td></tr>`).join('')||'<tr><td colspan="11">No deliveries match. Clear the search or filter.</td></tr>'}</tbody></table></div>
+<div class="row" style="margin-top:8px"><button class="btn" ${S.pg==0?'disabled':''} onclick="S.pg--;R()">Previous</button><span>Page ${S.pg+1} of ${pages} · ${list.length} results</span><button class="btn" ${S.pg+1>=pages?'disabled':''} onclick="S.pg++;R()">Next</button></div>`}
+function exportCsv(){const q=v=>/^[=+\-@]/.test(String(v))?"'"+v:v;const rows=[['id','carrier','category','destination','weight_kg','status','eta'],...filtered().map(s=>[s.id,s.carrier,s.cat,s.dest,s.w,s.st,s.eta.toISOString().slice(0,10)])];
+const a=document.createElement('a');a.href='data:text/csv;charset=utf-8,'+encodeURIComponent(rows.map(r=>r.map(q).join(',')).join('\n'));a.download='deliveries.csv';a.click();log('Exported deliveries CSV','report');toast('CSV exported')}
+function dash(){const s=sel(),on=SH.filter(x=>['In Transit','Assigned','Planned'].includes(x.st));
+return kpis()+`<div class="card pad" style="margin-bottom:12px"><h2>Ongoing deliveries</h2><div class="two"><div style="max-height:470px;overflow:auto">${on.slice(0,10).map(shipCard).join('')||'<p>No ongoing deliveries.</p>'}</div>
+<div><div class="mapbox">${mapSvg(on,S.sel)}${detail(s)}</div><p class="note">Synthetic coordinates and simulated tracking. Connect a GPS/carrier provider to show live positions.</p></div></div></div>
+<div class="card pad"><h2>Track orders</h2>${table(filtered())}</div>`}
+function ship(){const s=sel();return `<div class="two"><div class="card pad"><h2>All shipments</h2>${table(filtered())}</div><div class="card pad"><h2>${s.id}</h2>${truck(s.veh?s.veh.color:'#64748b',230)}<p>${badge(s.st)} · ${s.cat} · ${s.carrier}</p>
+<p>Order ${s.ord}<br>Route: Kadapa → ${s.dest} (${s.dist} km)<br>Deliver to: ${esc(s.rec.name)}, ${esc(s.rec.addr)}<br>Window ${s.win} · Priority ${s.prio}<br>Expected date: <b>${fmtD(s.eta)}</b></p>${s.reason?`<p>Failure reason: ${s.reason}</p>`:''}
+<h3>Event timeline</h3>${EV.filter(e=>e.id==s.id).map(e=>`<div class="note">• ${e.t}</div>`).join('')}
+<div class="row" style="margin-top:8px">${can('run')?`<select id="ns">${['Pending','Planned','Assigned','In Transit','Delivered','Failed'].map(x=>`<option>${x}</option>`).join('')}</select><button class="btn p" onclick="setStatus()">Update status</button>`:'<span class="note">Read-only for your role.</span>'}${can('create')?`<button class="btn d" onclick="confirmDel()">Cancel shipment</button>`:''}</div></div></div>`}
+const NEXT={Pending:['Planned','Unserved'],Planned:['Assigned','Pending'],Assigned:['In Transit','Planned'],'In Transit':['Delivered','Failed'],Failed:['Pending'],Delivered:[],Unserved:['Pending']};
+function setStatus(){if(!can('run'))return toast('Not allowed for your role');const s=sel(),v=document.getElementById('ns').value;
+if(!NEXT[s.st].includes(v)&&v!=s.st)return toast(`Invalid transition ${s.st} → ${v}`);
+if(['Assigned','In Transit'].includes(v)&&!s.veh)s.veh=VEH.find(x=>x.status=='Available');
+EV.push({id:s.id,t:`${s.st} → ${v} by ${S.user} (${new Date().toLocaleTimeString()})`});log(`Status ${s.st} → ${v}`,s.id);s.st=v;if(v=='Delivered')s.prog=1;R();toast('Status updated')}
+function confirmDel(){const d=document.createElement('div');d.className='dlg';d.innerHTML=`<div class="card" role="dialog" aria-modal="true"><h2>Cancel ${S.sel}?</h2><p>The shipment is marked Unserved and the action is recorded in the audit history.</p><div class="row"><button class="btn" id="n">Keep</button><button class="btn d" id="y">Cancel shipment</button></div></div>`;document.body.append(d);
+d.querySelector('#n').onclick=()=>d.remove();d.querySelector('#y').onclick=()=>{const s=sel();s.st='Unserved';s.veh=null;s.reason='Cancelled by planner';log('Cancelled',s.id);d.remove();R()}}
+function plan(){const pend=SH.filter(s=>['Pending','Unserved'].includes(s.st));
+return `<div class="card pad"><h2>Route planner</h2><p class="note">Plans a feasible route per vehicle: capacity, availability and priority are hard rules. Method: greedy nearest-stop heuristic — not mathematically optimal.</p>
+<div class="row"><label>Planning date <input type="text" value="${fmtD(new Date(TODAY.getTime()+864e5))}" readonly></label><label>Traffic <select id="tf"><option value="1">Normal</option><option value="1.25">Heavy (+25%)</option></select></label>
+<button class="btn p" ${can('plan')?'':'disabled title="Planner or admin role required"'} onclick="runPlan()">Run optimization (${pend.length} deliveries)</button></div>
+${S.plan?planView():'<p>No plan yet. Run optimization to preview routes before committing.</p>'}</div>`}
+function runPlan(){const tf=+document.getElementById('tf').value;const pend=SH.filter(s=>['Pending','Unserved'].includes(s.st)).sort((a,b)=>a.prio-b.prio||a.dist-b.dist);
+const vs=VEH.filter(v=>v.status=='Available').map(v=>({v,load:0,stops:[],t:6*60}));const un=[];const t0=performance.now();
+for(const s of pend){const maxCap=Math.max(...vs.map(x=>x.v.cap));if(s.w>maxCap){un.push({s,why:'Weight exceeds every vehicle capacity'});continue}
+const hrs=s.dist/55*tf*60;const c=vs.filter(x=>x.load+s.w<=x.v.cap&&x.t+hrs<=14*60*3).sort((a,b)=>a.load-b.load)[0];
+if(!c){un.push({s,why:'No vehicle with remaining capacity or shift time'});continue}
+c.load+=s.w;c.t+=hrs+30;c.stops.push(s)}
+const used=vs.filter(x=>x.stops.length);S.plan={id:'PLAN-'+String(Date.now()).slice(-6),tf,used,un,ms:Math.round(performance.now()-t0),dist:used.reduce((a,x)=>a+x.stops.reduce((b,s)=>b+s.dist,0),0),committed:false};
+log('Plan previewed',S.plan.id);R()}
+function planView(){const p=S.plan;return `<div class="two"><div><div class="row"><span class="tag">Run ${p.id}</span><span class="tag">Solver: heuristic (feasible, not proven optimal)</span><span class="tag">${p.ms} ms</span></div>
+<p>Routes <b>${p.used.length}</b> · Assigned <b>${p.used.reduce((a,x)=>a+x.stops.length,0)}</b> · Unserved <b>${p.un.length}</b> · Distance <b>${p.dist} km</b></p>
+${p.used.map(x=>`<div class="card pad" style="margin-bottom:8px"><b>${x.v.id}</b> · ${x.v.dname} ${truck(x.v.color,90)}<div class="bar"><i style="width:${Math.round(x.load/x.v.cap*100)}%"></i></div><div class="note">Load ${x.load}/${x.v.cap} kg (${Math.round(x.load/x.v.cap*100)}%)</div>
+${x.stops.map((s,i)=>`<div class="note">${i+1}. ${s.id} → ${s.dest} · ETA ${fmtD(new Date(TODAY.getTime()+864e5*(1+Math.floor(s.dist*p.tf/55/8))))}</div>`).join('')}</div>`).join('')}
+${p.un.map(u=>`<div class="note" style="color:var(--er)">Unserved ${u.s.id}: ${u.why}</div>`).join('')}
+<div class="row"><button class="btn p" ${can('plan')&&!p.committed?'':'disabled'} onclick="commitPlan()">Commit plan</button><button class="btn" onclick="S.plan=null;R()">Reject</button></div></div>
+<div class="mapbox">${mapSvg(p.used.flatMap(x=>x.stops.map(s=>({...s,st:'Planned',prog:0}))),null)}</div></div>`}
+function commitPlan(){if(!can('plan'))return toast('Not allowed');const p=S.plan;p.used.forEach(x=>x.stops.forEach(s=>{if(s.st!='Pending')return;s.veh=x.v;s.st='Assigned';s.eta=new Date(TODAY.getTime()+864e5*(1+Math.floor(s.dist*p.tf/55/8)));EV.push({id:s.id,t:`Assigned to ${x.v.id} in ${p.id}`})}));
+p.un.forEach(u=>{u.s.st='Unserved';u.s.reason=u.why});p.committed=true;log('Plan committed',p.id);toast('Plan committed — deliveries assigned');R()}
+// simulation (deterministic rule: failure when hash(id)%7==0 and weight>1000 kg)
+function advance(){if(!can('run'))return toast('Not allowed');let n=0;SH.filter(s=>s.st=='Assigned').forEach(s=>{s.st='In Transit';EV.push({id:s.id,t:'Departed depot (simulated)'});n++});
+SH.filter(s=>s.st=='In Transit').forEach(s=>{s.prog=Math.min(1,+(s.prog+.34).toFixed(2));if(s.prog>=1){const bad=(+s.id.slice(-3))%7==0&&s.w>1000;s.st=bad?'Failed':'Delivered';s.reason=bad?'Site closed outside window':'';EV.push({id:s.id,t:`${s.st} (simulated)`});if(bad)EXC.push({id:'EXC-S'+s.id.slice(-3),type:'Failed delivery',sev:'Medium',ent:s.id,txt:s.reason,act:'Reschedule',res:'Open'})}});
+log('Simulation advanced one step','simulation');R();toast('Simulation advanced')}
+function live(){const s=sel(),on=SH.filter(x=>x.st=='In Transit');return `<div class="card pad"><h2>Live tracking <span class="tag">Simulated</span></h2><div class="row"><button class="btn p" ${can('run')?'':'disabled'} onclick="advance()">Advance simulation</button><select aria-label="Shipment" onchange="S.sel=this.value;R()">${SH.map(x=>`<option ${x.id==S.sel?'selected':''}>${x.id}</option>`).join('')}</select></div>
+<div class="two"><div class="mapbox">${mapSvg(on.concat(s.st=='In Transit'?[]:[s]),S.sel)}${detail(s)}</div><div>${shipCard(s)}<p>Progress <b>${Math.round(s.prog*100)}%</b></p><div class="bar"><i style="width:${s.prog*100}%"></i></div><p>Planned arrival: <b>${fmtD(s.eta)}</b></p><p class="note">Real GPS requires a configured provider. Positions here come from the deterministic simulation.</p></div></div></div>`}
+function cust(){const rows=Object.entries(C).map(([n,c],i)=>[n,c[0],c[1],'09:00–17:00',10+i*3+' min',i%4==0?'No vehicles >12 t':'None']);return gen('Customer sites',['Site','Lat','Lon','Window','Service','Restriction'],rows)}
+function orders(){return gen('Orders',['Order','Delivery','Category','Weight','Value','Status'],SH.map(s=>[s.ord,s.id,s.cat,s.w+' kg','₹'+s.val.toLocaleString('en-IN'),s.st]))}
+function gen(t,h,r){return `<div class="card pad"><h2>${t}</h2><div class="tw"><table><thead><tr>${h.map(x=>`<th>${x}</th>`).join('')}</tr></thead><tbody>${r.map(x=>`<tr>${x.map(y=>`<td>${y}</td>`).join('')}</tr>`).join('')}</tbody></table></div></div>`}
+function fleet(){return `<div class="card pad"><h2>Vehicles & capacity</h2><div class="grid3">${VEH.map(v=>{const l=SH.filter(s=>s.veh?.id==v.id&&['Assigned','In Transit','Planned'].includes(s.st)).reduce((a,s)=>a+s.w,0);return `<div class="card pad">${truck(v.color,190)}<b>${v.id}</b> <span class="tag">${v.type}</span><div class="note">${v.status} · ${v.dname}<br>${v.cap} kg · ${v.vol} m³</div><div class="bar"><i style="width:${Math.min(100,l/v.cap*100)}%"></i></div><div class="note">Load ${l} kg</div>${can('run')?`<button class="btn" onclick="toggleV('${v.id}')">${v.status=='Available'?'Set maintenance':'Set available'}</button>`:''}</div>`}).join('')}</div></div>`}
+function toggleV(id){const v=VEH.find(x=>x.id==id);v.status=v.status=='Available'?'Maintenance':'Available';log('Vehicle '+v.status,id);R()}
+function drivers(){return gen('Drivers & shifts',['Driver','ID','Vehicle','Shift','Break','Conflicts'],VEH.map(v=>[v.dname,v.driver,v.id,v.shift,'10:00–10:30',v.status=='Maintenance'?'Vehicle unavailable':'None']))}
+function exc(){return `<div class="card pad"><h2>Exceptions</h2>${EXC.map(e=>`<div class="ship" style="cursor:default"><div style="flex:1"><b>${e.type}</b> <span class="tag">${e.sev}</span> ${badge(e.res=='Open'?'Exception':'Delivered').replace(/>[^<]+</,'>'+e.res+'<')}<div class="note">${e.ent}: ${e.txt}<br>Recommended: ${e.act}</div></div>${e.res=='Open'&&can('resolve')?`<button class="btn" onclick="resolveE('${e.id}')">Resolve</button>`:''}</div>`).join('')}<p class="note">Evaluation ground truth is kept in a separate dataset and is only shown to admins in evaluation mode.</p></div>`}
+function resolveE(id){const e=EXC.find(x=>x.id==id);e.res='Resolved';log('Exception resolved',id);R()}
+function ana(){const d=SH.filter(s=>s.st=='Delivered').length,f=SH.filter(s=>s.st=='Failed').length,by={};SH.forEach(s=>by[s.st]=(by[s.st]||0)+1);const mx=Math.max(...Object.values(by));
+return `<div class="card pad"><h2>Analytics</h2><div class="kpis"><div class="card kpi"><span>Success rate</span><b>${d+f?Math.round(d/(d+f)*100):0}%</b></div><div class="card kpi"><span>Total km</span><b>${SH.reduce((a,s)=>a+s.dist,0)}</b></div><div class="card kpi"><span>Fleet utilisation</span><b>${Math.round(SH.filter(s=>s.veh).length/SH.length*100)}%</b></div><div class="card kpi"><span>Exceptions</span><b>${EXC.length}</b></div></div>
+<h3>Deliveries by status</h3>${Object.entries(by).map(([k,v])=>`<div class="row"><span style="width:90px">${k}</span><div class="bar" style="flex:1"><i style="width:${v/mx*100}%"></i></div><b>${v}</b></div>`).join('')}
+<button class="btn" onclick="exportCsv()">Export report</button></div>`}
+function aud(){return gen('Audit history (read-only)',['Time','Actor','Action','Entity'],AUD.slice(0,60).map(a=>[a.t.toLocaleString('en-IN',{timeZone:S.tz}),a.a,a.x,a.e]))}
+function set(){return `<div class="card pad"><h2>Settings</h2>${can('cfg')?`<div class="row"><label>Timezone <select onchange="S.tz=this.value;log('Timezone changed','settings');R()"><option>Asia/Kolkata</option><option>UTC</option></select></label></div><h3>Users & roles</h3>${gen('',['User','Role'],[['admin@demo','admin'],['planner@demo','planner'],['operator@demo','operator'],['analyst@demo','analyst'],['viewer@demo','viewer']])}`:'<p>Only admins can change settings.</p>'}</div>`}
+const PAGES={dash,ship,plan,live,cust,orders,fleet,drivers,exc,ana,aud,set};
+// ---------- shell ----------
+function login(){const ro=['admin','planner','operator','analyst','viewer'];return `<div class="login"><div class="card"><div class="logo"><i>L</i>LogiRoute</div><h2>Sign in</h2><p class="note">Demo build: pick a role to see how the interface and permissions change. The full project uses Better Auth with server-side sessions.</p>
+<label>Role<br><select id="r" style="width:100%">${ro.map(r=>`<option>${r}</option>`).join('')}</select></label><br><br><label>Email<br><input type="text" id="e" value="user@demo.local" style="width:100%"></label><br><br><label>Password<br><input type="password" id="p" value="demo-only" style="width:100%"></label>
+<p style="color:var(--er)">${S.err}</p><button class="btn p" style="width:100%" onclick="doLogin()">Sign in</button></div></div>`}
+function doLogin(){const e=document.getElementById('e').value.trim();if(!/^\S+@\S+\.\S+$/.test(e)){S.err='Enter a valid email address.';return R()}S.err='';S.role=document.getElementById('r').value;S.user=S.role+'@demo';S.page='dash';log('Signed in as '+S.role,'session');R()}
+function R(keep){if(!S.user){root.innerHTML=login();return}const ok=PERM[S.role];if(!ok.includes(S.page))S.page='dash';
+const f=keep&&document.activeElement&&document.activeElement.type=='search',pos=f?document.activeElement.selectionStart:0;
+root.innerHTML=`<div class="app"><aside class="${S.menu?'open':''}"><div class="logo"><i>L</i>LogiRoute</div><nav>${ok.map(k=>`<button class="${S.page==k?'on':''}" ${S.page==k?'aria-current="page"':''} onclick="S.page='${k}';S.menu=false;S.pg=0;R()"><span aria-hidden="true">${NAV[k][0]}</span>${NAV[k][1]}</button>`).join('')}</nav></aside>
+<main><header class="top"><button class="btn menu" aria-label="Menu" onclick="S.menu=!S.menu;R()">☰</button><b>${NAV[S.page][1]}</b><span class="sp"></span><span class="pill" title="Simulated time">${fmtD(TODAY)}</span><button class="btn" aria-label="Notifications" onclick="S.page='${ok.includes('exc')?'exc':'dash'}';R()">🔔 ${EXC.filter(e=>e.res=='Open').length}</button><button class="btn" onclick="S.theme=document.documentElement.dataset.theme=='dark'?'light':'dark';document.documentElement.dataset.theme=S.theme">Theme</button><span class="pill">${S.role}</span><button class="btn" onclick="S.user=null;R()">Sign out</button></header>${PAGES[S.page]()}</main></div>`;
+if(f){const i=document.querySelector('input[type=search]');i.focus();i.setSelectionRange(pos,pos)}}
+// ---------- v2: realistic truck, contacts, per-truck live tracking ----------
+const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const tel=p=>`<a href="tel:${esc(p).replace(/\s/g,'')}">${esc(p)}</a>`;
+const PIN={Chennai:['Tamil Nadu','600001'],Bengaluru:['Karnataka','560001'],Hyderabad:['Telangana','500001'],Tirupati:['Andhra Pradesh','517501'],Vijayawada:['Andhra Pradesh','520001'],Kurnool:['Andhra Pradesh','518001'],Nellore:['Andhra Pradesh','524001'],Visakhapatnam:['Andhra Pradesh','530001'],Coimbatore:['Tamil Nadu','641001'],Mysuru:['Karnataka','570001'],Anantapur:['Andhra Pradesh','515001']};
+const RN=['Arjun Mehta','Divya Rao','Karthik Iyer','Meena Sharma','Rahul Verma','Sneha Pillai','Vikram Singh','Anjali Das','Farhan Ali','Neha Gupta','Rohit Jain','Pooja Reddy'];
+const ph=(a,i)=>'+91 9'+a+String(1000+i*37).slice(-4)+String(10000+i*911).slice(-5);
+SH.forEach((s,i)=>{const p=PIN[s.dest];s.rec={name:RN[i%12],phone:ph('0',i),email:i%4==3?'':RN[i%12].toLowerCase().replace(' ','.')+'@example.com',addr:`${12+i*3}, ${['MG Road','Station Road','Gandhi Nagar','Temple Street'][i%4]}, ${s.dest}, ${p[0]} ${p[1]}`}});
+const DRVS=VEH.map((v,i)=>({id:v.driver,name:v.dname,phone:ph('1',i),email:i%3==0?'':v.dname.toLowerCase().replace(' ','.')+'@example.com',addr:`${5+i*4}, ${['Rajeev Nagar','Ram Nagar','Balaji Colony','Anna Nagar'][i%4]}, Kadapa, Andhra Pradesh 516001`,lic:'AP-DL-'+(100000+i*913),veh:v.id}));
+const PART=CARR.map((c,i)=>({name:c,contact:['Sunil Patel','Deepa Menon','Rakesh Nair','Asha Kulkarni','Imtiaz Pasha'][i],phone:ph('2',i),email:'ops@'+c.toLowerCase().replace(/\W/g,'')+'.example',addr:`${c} Hub, Industrial Area, ${['Chennai','Bengaluru','Hyderabad','Vijayawada','Tirupati'][i]}`}));
+const EXTRAREC=[];const drvOf=s=>s.veh?DRVS.find(d=>d.id==s.veh.driver):null;
+S.auto=true;S.pt='drv';
+const TRK=`<defs><linearGradient id="tg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff"/><stop offset=".7" stop-color="#e9edf2"/><stop offset="1" stop-color="#c5ccd6"/></linearGradient><linearGradient id="tw" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4b5b70"/><stop offset="1" stop-color="#1f2937"/></linearGradient></defs>
+<ellipse cx="120" cy="76" rx="112" ry="3.5" fill="#0003"/><rect x="6" y="58" width="228" height="5" rx="2" fill="#2b3038"/>
+<rect x="4" y="6" width="152" height="52" rx="3" fill="url(#tg)" stroke="#c3cad5"/><rect x="7" y="9" width="146" height="3" rx="1.5" fill="#fff"/>
+<rect x="62" y="46" width="58" height="4" fill="#f59e0b"/><rect x="12" y="54" width="16" height="3" fill="#9aa4b2"/>
+<path d="M160 58V24l13-14h29l14 18 10 6v24z" fill="url(#tg)" stroke="#c3cad5"/><path d="M176 15h24l11 15h-35z" fill="url(#tw)"/><path d="M180 17h12l-6 11h-9z" fill="#fff" opacity=".18"/>
+<path d="M196 33h20v17h-20z" fill="none" stroke="#c3cad5"/><rect x="216" y="50" width="20" height="8" rx="2" fill="#222a35"/><rect x="226" y="37" width="8" height="5" rx="1" fill="#fde68a"/>
+${[30,50,128,182].map(x=>`<circle cx="${x}" cy="66" r="9.5" fill="#14181f"/><circle cx="${x}" cy="66" r="4.2" fill="#aab3c0"/><circle cx="${x}" cy="66" r="1.6" fill="#5b6572"/>`).join('')}`;
+function truck(c,w=150){return `<svg viewBox="0 0 240 80" width="${w}" role="img" aria-label="White delivery truck">${TRK}</svg>`}
+function mapSvg(list,selId){const P=c=>[40+(c[1]-76)*(320/7.5),270-(c[0]-11)*(250/7)];const dp=P(C.Kadapa);
+let o=`<svg viewBox="0 0 400 290" role="img" aria-label="Route map (synthetic coordinates)">`;
+for(const [n,c] of Object.entries(C)){const p=P(c);o+=`<circle cx="${p[0]}" cy="${p[1]}" r="3" fill="var(--mu)"/><text x="${p[0]+5}" y="${p[1]+3}" font-size="8" fill="var(--mu)">${n}</text>`}
+list.forEach(s=>{const p=P(C[s.dest]),on=s.id==selId,mx=(dp[0]+p[0])/2+12,my=(dp[1]+p[1])/2-14;
+o+=`<path d="M${dp[0]} ${dp[1]} Q${mx} ${my} ${p[0]} ${p[1]}" fill="none" stroke="${on?'var(--ac)':'var(--bd)'}" stroke-width="${on?2.6:1.2}" ${s.st=='Planned'||s.st=='Assigned'?'stroke-dasharray="4 3"':''}/>`;
+if(on){const t=s.prog,x=(1-t)**2*dp[0]+2*(1-t)*t*mx+t*t*p[0],y=(1-t)**2*dp[1]+2*(1-t)*t*my+t*t*p[1],dir=p[0]<dp[0]?-1:1;
+o+=`<circle cx="${p[0]}" cy="${p[1]}" r="6" fill="var(--ac)"/><g transform="translate(${x},${y-9}) scale(${dir*.17},.17) translate(-120,-40)">${TRK}</g>`}});
+return o+`<rect x="${dp[0]-6}" y="${dp[1]-6}" width="12" height="12" fill="#16a34a" stroke="#fff"/><text x="${dp[0]-30}" y="${dp[1]+18}" font-size="9" font-weight="700" fill="var(--tx)">Depot Kadapa</text></svg>`}
+function detail(s){const d=drvOf(s);return `<div class="det"><div><small>Driver</small>${d?esc(d.name)+'<br>'+tel(d.phone):'—'}</div><div><small>Deliver to</small>${esc(s.rec.name)}<br>${s.dest}</div><div><small>Weight</small>${s.w} kg</div><div><small>Value</small>₹${s.val.toLocaleString('en-IN')}</div></div>`}
+function shipCard(s){const lv=PERM[S.role].includes('live');return `<div class="ship ${s.id==S.sel?'on':''}" tabindex="0" onclick="S.sel='${s.id}';R()" onkeydown="if(event.key=='Enter'){S.sel='${s.id}';R()}">
+<div style="flex:1;min-width:0"><small style="color:var(--mu)">Shipment ID</small><br><b>${s.id}</b><div class="row" style="margin:4px 0"><span class="tag">${s.cat}</span><span class="tag">${s.carrier}</span>${badge(s.st)}</div>
+<div>Kadapa → ${s.dest}</div><div class="note">${s.dist} km · ${s.veh?s.veh.id+' · '+esc(drvOf(s).name):'No vehicle yet'}<br>To: ${esc(s.rec.name)}, ${esc(s.rec.addr)}<br><b>${s.st=='Delivered'?'Delivered':s.st=='Failed'?'Attempted':'Expected'}: ${fmtD(s.eta)}</b></div>${lv?`<button class="btn p" style="margin-top:6px" onclick="event.stopPropagation();S.sel='${s.id}';S.page='live';R()">Track live</button>`:''}</div>
+<div class="tr">${truck('',165)}</div></div>`}
+function finish(s){const bad=(+s.id.slice(-3))%7==0&&s.w>1000;s.st=bad?'Failed':'Delivered';s.reason=bad?'Site closed outside window':'';EV.push({id:s.id,t:`${s.st} (simulated)`});log('Simulated '+s.st,s.id);if(bad)EXC.push({id:'EXC-S'+s.id.slice(-3),type:'Failed delivery',sev:'Medium',ent:s.id,txt:s.reason,act:'Reschedule',res:'Open'})}
+const person=(t,n,p,e,a)=>`<div class="card pad" style="margin-bottom:8px"><h3>${t}</h3><b>${esc(n)}</b><br>${p?tel(p):'—'}<br>${e?esc(e):'No email on file'}<br><span class="note">${esc(a)}</span></div>`;
+function live(){const s=sel(),d=drvOf(s),pt=PART.find(x=>x.name==s.carrier),t=s.prog,K=C.Kadapa,D=C[s.dest],go=s.st=='In Transit';
+const lat=(K[0]+(D[0]-K[0])*t).toFixed(4),lon=(K[1]+(D[1]-K[1])*t).toFixed(4),spd=go?42+Math.floor(t*100)%17:0,left=Math.round(s.dist*(1-t));
+const on=SH.filter(x=>x.st=='In Transit'&&x.id!=s.id).concat([s]);
+return `<div class="card pad"><h2>Live tracking <span class="tag">Simulated GPS</span></h2><div class="row"><select aria-label="Shipment" onchange="S.sel=this.value;R()">${SH.map(x=>`<option ${x.id==S.sel?'selected':''}>${x.id}</option>`).join('')}</select>
+<label><input type="checkbox" ${S.auto?'checked':''} onchange="S.auto=this.checked;R()"> Auto-move truck</label><button class="btn p" ${can('run')?'':'disabled'} onclick="advance()">Advance all trucks</button></div>
+<div class="two"><div><div class="mapbox">${mapSvg(on,s.id)}</div><div class="card pad" style="margin-top:8px">${truck('',260)}<div class="row">${badge(s.st)}<b>${s.id}</b><span class="tag">${s.veh?s.veh.id:'No truck assigned'}</span></div>
+<div class="bar"><i style="width:${t*100}%"></i></div><div class="kpis" style="margin:8px 0 0"><div class="card kpi"><span>Speed</span><b>${spd} km/h</b></div><div class="card kpi"><span>Remaining</span><b>${left} km</b></div><div class="card kpi"><span>Progress</span><b>${Math.round(t*100)}%</b></div><div class="card kpi"><span>GPS</span><b style="font-size:12px">${lat}, ${lon}</b></div></div>
+<p class="note">Expected delivery: <b>${fmtD(s.eta)}</b> · Last ping ${new Date().toLocaleTimeString('en-IN',{timeZone:S.tz})} (simulated; connect a GPS provider for real positions)</p></div></div>
+<div><div class="card pad" style="margin-bottom:8px"><h3>Route</h3><div class="note">● Depot Kadapa — ${t>0?'departed':'waiting'}<br>● In transit — ${left} km to go<br>● ${esc(s.rec.addr)} — ETA ${fmtD(s.eta)}</div></div>
+${person('Driver',d?d.name:'Not assigned',d?.phone,d?.email,d?d.addr:'Assign a vehicle in the Route Planner')}${person('Delivery partner',pt.name+' ('+pt.contact+')',pt.phone,pt.email,pt.addr)}${person('Shipping to',s.rec.name,s.rec.phone,s.rec.email,s.rec.addr)}</div></div></div>`}
+setInterval(()=>{if(!S.user||S.page!='live'||!S.auto||document.activeElement?.tagName=='SELECT')return;const s=sel();if(s.st!='In Transit')return;s.prog=+Math.min(1,s.prog+.02).toFixed(2);if(s.prog>=1)finish(s);R()},2000);
+function people(){const t=S.pt,T=[['drv','Drivers'],['par','Delivery partners'],['rec','Recipients']];let h,r;
+if(t=='drv'){h=['Name','ID','Phone','Email','Address','Licence','Vehicle'];r=DRVS.map(d=>[esc(d.name),d.id,tel(d.phone),esc(d.email)||'—',esc(d.addr),esc(d.lic),d.veh])}
+else if(t=='par'){h=['Partner','Contact person','Phone','Email','Address','Open shipments'];r=PART.map(p=>[esc(p.name),esc(p.contact),tel(p.phone),esc(p.email)||'—',esc(p.addr),SH.filter(s=>s.carrier==p.name&&!['Delivered','Failed'].includes(s.st)).length])}
+else{h=['Name','Shipment','Phone','Email','Delivery address'];r=SH.map(s=>[esc(s.rec.name),s.id,tel(s.rec.phone),esc(s.rec.email)||'—',esc(s.rec.addr)]).concat(EXTRAREC.map(x=>[esc(x.name),'—',tel(x.phone),esc(x.email)||'—',esc(x.addr)]))}
+const f=can('people')?`<div class="row"><input type="text" id="pn" placeholder="Name" aria-label="Name"><input type="text" id="pp" placeholder="+91 phone" aria-label="Phone"><input type="text" id="pe" placeholder="Email (optional)" aria-label="Email"><input type="text" id="pa" placeholder="Address" aria-label="Address" size="34"><button class="btn p" onclick="addPerson()">Add</button></div><p class="note" id="pe_err" style="color:var(--er)">${S.perr||''}</p>`:'<p class="note">Read-only for your role.</p>';
+return `<div class="card pad"><h2>Contacts</h2><div class="row">${T.map(x=>`<button class="btn ${t==x[0]?'p':''}" onclick="S.pt='${x[0]}';S.perr='';R()">${x[1]}</button>`).join('')}</div>${f}<div class="tw"><table><thead><tr>${h.map(x=>`<th>${x}</th>`).join('')}</tr></thead><tbody>${r.map(x=>`<tr>${x.map(y=>`<td>${y}</td>`).join('')}</tr>`).join('')}</tbody></table></div><p class="note">Synthetic demo contacts. In the full project these live in Supabase tables (see contacts_schema.sql).</p></div>`}
+function addPerson(){const g=i=>document.getElementById(i).value.trim(),n=g('pn'),p=g('pp'),e=g('pe'),a=g('pa');
+S.perr=!n?'Enter a name.':!/^\+?[0-9 ]{10,14}$/.test(p)?'Enter a valid phone number, e.g. +91 90000 12345.':e&&!/^\S+@\S+\.\S+$/.test(e)?'Enter a valid email or leave it empty.':!a?'Enter an address.':'';
+if(S.perr)return R();if(S.pt=='drv'){const i=DRVS.length+1;DRVS.push({id:'DRV-'+String(i).padStart(6,'0'),name:n,phone:p,email:e,addr:a,lic:'—',veh:'—'})}else if(S.pt=='par')PART.push({name:n,contact:'—',phone:p,email:e,addr:a});else EXTRAREC.push({name:n,phone:p,email:e,addr:a});
+log('Contact added ('+S.pt+')','contacts');toast('Contact saved');R()}
+PAGES.people=people;NAV.people=['☎','Contacts'];CAN.people=['admin','planner'];['admin','planner','operator'].forEach(r=>PERM[r].push('people'));
+R();
+</script></body></html>

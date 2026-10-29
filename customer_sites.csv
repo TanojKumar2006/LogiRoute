@@ -1,0 +1,41 @@
+site_id,name,address,area,latitude,longitude,zone_id,service_base_min,max_vehicle_class,access_difficulty,signature_required,contact_name,phone,email,effective_from
+SITE-000001,Meena Mart,"69, Ring Road Service Lane, LB Nagar, Hyderabad, Telangana",LB Nagar,17.386116,78.584633,ZONE-06,5,MEDIUM,2,false,Karthik Reddy,+91 90000 00001,,2026-09-01
+SITE-000002,Imran Enterprises,"80, MG Road, Uppal, Hyderabad, Telangana",Uppal,17.397543,78.520558,ZONE-05,15,LARGE,1,true,Imran Das,+91 90000 00002,site2@example.com,2026-09-01
+SITE-000003,Suresh Distributors,"12, Ring Road Service Lane, Kukatpally, Hyderabad, Telangana",Kukatpally,17.483946,78.446287,ZONE-08,8,LARGE,0,true,Anjali Gupta,+91 90000 00003,,2026-09-01
+SITE-000004,Pooja Stores,"81, Ring Road Service Lane, LB Nagar, Hyderabad, Telangana",LB Nagar,17.390097,78.547402,ZONE-05,15,SMALL,1,true,Farhan Khan,+91 90000 00004,site4@example.com,2026-09-01
+SITE-000005,Neha Distributors,"61, Temple Street, Kukatpally, Hyderabad, Telangana",Kukatpally,17.560846,78.420220,ZONE-08,15,LARGE,1,true,Imran Singh,+91 90000 00005,site5@example.com,2026-09-01
+SITE-000006,Neha Stores,"16, Ring Road Service Lane, Banjara Hills, Hyderabad, Telangana",Banjara Hills,17.359144,78.450732,ZONE-05,10,LARGE,1,true,Neha Gupta,+91 90000 00006,site6@example.com,2026-09-01
+SITE-000007,Karthik Traders,"1, Park Lane, Banjara Hills, Hyderabad, Telangana",Banjara Hills,17.394475,78.394830,ZONE-04,5,LARGE,0,false,Farhan Khan,+91 90000 00007,,2026-09-01
+SITE-000008,Anjali Distributors,"88, Park Lane, Gachibowli, Hyderabad, Telangana",Gachibowli,17.453210,78.298459,ZONE-04,10,SMALL,0,true,Vikram Nair,+91 90000 00008,,2026-09-01
+SITE-000009,Vikram Traders,"39, Station Road, Uppal, Hyderabad, Telangana",Uppal,17.360449,78.570663,ZONE-06,5,LARGE,0,false,Imran Iyer,+91 90000 00009,,2026-09-01
+SITE-000010,Rohit Enterprises,"13, MG Road, Kukatpally, Hyderabad, Telangana",Kukatpally,17.466597,78.351505,ZONE-04,8,LARGE,0,false,Divya Khan,+91 90000 00010,site10@example.com,2026-09-01
+SITE-000011,Pooja Traders,"76, Park Lane, Uppal, Hyderabad, Telangana",Uppal,17.402983,78.585659,ZONE-06,15,LARGE,0,true,Anjali Iyer,+91 90000 00011,,2026-09-01
+SITE-000012,Lakshmi Distributors,"30, Park Lane, Gachibowli, Hyderabad, Telangana",Gachibowli,17.389351,78.373520,ZONE-04,15,MEDIUM,1,false,Pooja Khan,+91 90000 00012,,2026-09-01
+SITE-000013,Imran Enterprises,"38, Temple Street, Kukatpally, Hyderabad, Telangana",Kukatpally,17.460645,78.401294,ZONE-05,8,LARGE,0,true,Rahul Rao,+91 90000 00013,site13@example.com,2026-09-01
+SITE-000014,Neha Supplies,"28, Temple Street, Gachibowli, Hyderabad, Telangana",Gachibowli,17.447886,78.306370,ZONE-04,15,MEDIUM,1,false,Rohit Gupta,+91 90000 00014,,2026-09-01
+SITE-000015,Divya Mart,"53, MG Road, Secunderabad, Hyderabad, Telangana",Secunderabad,17.413525,78.503765,ZONE-05,10,MEDIUM,1,false,Lakshmi Reddy,+91 90000 00015,site15@example.com,2026-09-01
+SITE-000016,Farhan Enterprises,"24, Park Lane, Kukatpally, Hyderabad, Telangana",Kukatpally,17.524581,78.422319,ZONE-08,10,LARGE,0,false,Aarav Pillai,+91 90000 00016,,2026-09-01
+SITE-000017,Karthik Stores,"34, Ring Road Service Lane, LB Nagar, Hyderabad, Telangana",LB Nagar,17.314881,78.553853,ZONE-03,5,MEDIUM,1,false,Rahul Gupta,+91 90000 00017,site17@example.com,2026-09-01
+SITE-000018,Aarav Mart,"46, Ring Road Service Lane, Gachibowli, Hyderabad, Telangana",Gachibowli,17.433658,78.360642,ZONE-04,8,LARGE,2,false,Aarav Pillai,+91 90000 00018,site18@example.com,2026-09-01
+SITE-000019,Rohit Mart,"49, MG Road, Secunderabad, Hyderabad, Telangana",Secunderabad,17.417083,78.516772,ZONE-05,8,LARGE,0,false,Suresh Sharma,+91 90000 00019,,2026-09-01
+SITE-000020,Farhan Supplies,"35, Temple Street, Secunderabad, Hyderabad, Telangana",Secunderabad,17.491885,78.528768,ZONE-08,10,LARGE,2,false,Priya Rao,+91 90000 00020,,2026-09-01
+SITE-000021,Divya Retail,"30, Gandhi Nagar, Banjara Hills, Hyderabad, Telangana",Banjara Hills,17.470952,78.395112,ZONE-07,8,MEDIUM,0,false,Meena Das,+91 90000 00021,site21@example.com,2026-09-01
+SITE-000022,Sneha Mart,"43, Gandhi Nagar, Kukatpally, Hyderabad, Telangana",Kukatpally,17.508087,78.406590,ZONE-08,10,MEDIUM,1,false,Lakshmi Sharma,+91 90000 00022,site22@example.com,2026-09-01
+SITE-000023,Anjali Stores,"39, Ring Road Service Lane, Banjara Hills, Hyderabad, Telangana",Banjara Hills,17.352743,78.400082,ZONE-05,8,LARGE,0,true,Anjali Khan,+91 90000 00023,,2026-09-01
+SITE-000024,Rohit Supplies,"80, MG Road, Secunderabad, Hyderabad, Telangana",Secunderabad,17.377276,78.522221,ZONE-05,8,SMALL,1,true,Rahul Reddy,+91 90000 00024,site24@example.com,2026-09-01
+SITE-000025,Neha Stores,"28, Temple Street, Kukatpally, Hyderabad, Telangana",Kukatpally,17.469360,78.449184,ZONE-08,5,LARGE,0,false,Pooja Iyer,+91 90000 00025,,2026-09-01
+SITE-000026,Rahul Traders,"86, Ring Road Service Lane, Miyapur, Hyderabad, Telangana",Miyapur,17.464357,78.373736,ZONE-04,8,LARGE,1,false,Sneha Das,+91 90000 00026,,2026-09-01
+SITE-000027,Meena Mart,"46, Ring Road Service Lane, Kukatpally, Hyderabad, Telangana",Kukatpally,17.519249,78.389892,ZONE-07,8,LARGE,2,true,Rohit Khan,+91 90000 00027,site27@example.com,2026-09-01
+SITE-000028,Divya Agencies,"56, Park Lane, LB Nagar, Hyderabad, Telangana",LB Nagar,17.381973,78.600134,ZONE-06,15,LARGE,0,false,Sneha Reddy,+91 90000 00028,site28@example.com,2026-09-01
+SITE-000029,Vikram Agencies,"38, Ring Road Service Lane, Gachibowli, Hyderabad, Telangana",Gachibowli,17.458837,78.334083,ZONE-04,15,MEDIUM,1,false,Divya Gupta,+91 90000 00029,site29@example.com,2026-09-01
+SITE-000030,Vikram Stores,"17, Ring Road Service Lane, Kukatpally, Hyderabad, Telangana",Kukatpally,17.496477,78.398779,ZONE-07,10,SMALL,1,false,Rohit Sharma,+91 90000 00030,,2026-09-01
+SITE-000031,Aarav Enterprises,"93, Park Lane, Secunderabad, Hyderabad, Telangana",Secunderabad,17.421030,78.508337,ZONE-05,10,LARGE,1,false,Rohit Das,+91 90000 00031,site31@example.com,2026-09-01
+SITE-000032,Vikram Agencies,"16, Ring Road Service Lane, Gachibowli, Hyderabad, Telangana",Gachibowli,17.406303,78.354475,ZONE-04,15,LARGE,1,false,Suresh Gupta,+91 90000 00032,site32@example.com,2026-09-01
+SITE-000033,Suresh Mart,"36, Ring Road Service Lane, Banjara Hills, Hyderabad, Telangana",Banjara Hills,17.407972,78.449864,ZONE-05,15,LARGE,0,true,Divya Gupta,+91 90000 00033,site33@example.com,2026-09-01
+SITE-000034,Vikram Mart,"15, Temple Street, Kukatpally, Hyderabad, Telangana",Kukatpally,17.485526,78.409690,ZONE-08,8,LARGE,0,true,Priya Gupta,+91 90000 00034,site34@example.com,2026-09-01
+SITE-000035,Rahul Stores,"78, Temple Street, Miyapur, Hyderabad, Telangana",Miyapur,17.507734,78.397126,ZONE-07,15,LARGE,1,false,Lakshmi Gupta,+91 90000 00035,site35@example.com,2026-09-01
+SITE-000036,Priya Traders,"62, Temple Street, Uppal, Hyderabad, Telangana",Uppal,17.367578,78.614367,ZONE-06,15,LARGE,0,false,Aarav Iyer,+91 90000 00036,,2026-09-01
+SITE-000037,Farhan Retail,"26, Ring Road Service Lane, Banjara Hills, Hyderabad, Telangana",Banjara Hills,17.404655,78.447041,ZONE-05,15,LARGE,0,true,Priya Rao,+91 90000 00037,site37@example.com,2026-09-01
+SITE-000038,Rahul Enterprises,"56, MG Road, Uppal, Hyderabad, Telangana",Uppal,17.412677,78.558240,ZONE-06,10,LARGE,2,true,Rahul Nair,+91 90000 00038,site38@example.com,2026-09-01
+SITE-000039,Aarav Mart,"35, Ring Road Service Lane, Gachibowli, Hyderabad, Telangana",Gachibowli,17.428082,78.324087,ZONE-04,15,LARGE,2,false,Lakshmi Nair,+91 90000 00039,site39@example.com,2026-09-01
+SITE-000040,Divya Agencies,"25, Temple Street, Miyapur, Hyderabad, Telangana",Miyapur,17.476371,78.342039,ZONE-07,8,MEDIUM,0,false,Rohit Nair,+91 90000 00040,,2026-09-01

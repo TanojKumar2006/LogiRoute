@@ -1,0 +1,6 @@
+partner_id,name,contact_person,phone,email,address
+PTR-001,Swift Carriers,Sunil Patel,+91 91000 00001,ops1@example.com,"Swift Carriers Hub, Industrial Area, Hyderabad"
+PTR-002,Deccan Express,Deepa Menon,+91 91000 00002,ops2@example.com,"Deccan Express Hub, Industrial Area, Hyderabad"
+PTR-003,Nizam Logistics,Rakesh Nair,+91 91000 00003,ops3@example.com,"Nizam Logistics Hub, Industrial Area, Hyderabad"
+PTR-004,Charminar Freight,Asha Kulkarni,+91 91000 00004,ops4@example.com,"Charminar Freight Hub, Industrial Area, Hyderabad"
+PTR-005,Krishna Couriers,Imtiaz Pasha,+91 91000 00005,ops5@example.com,"Krishna Couriers Hub, Industrial Area, Hyderabad"

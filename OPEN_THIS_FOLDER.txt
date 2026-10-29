@@ -1,0 +1,9 @@
+OPEN THIS FOLDER IN VS CODE
+
+1. Extract this ZIP.
+2. In VS Code choose File > Open Folder.
+3. Select the extracted LogiRoute_One_Folder folder (the one containing frontend, backend, data).
+4. To preview the frontend without npm, double-click START_LOCAL_DEMO.bat.
+5. Open http://localhost:8000.
+
+Only one copy of each project area is included. The backend source is separate and is not connected to the standalone demo UI by default. The local demo uses simulated data; backend/database integration needs separate setup and verification.

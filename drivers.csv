@@ -1,0 +1,15 @@
+driver_id,full_name,phone,email,address,licence_no,status
+DRV-000001,Pooja Gupta,+91 92000 00001,,"65, Park Lane, Miyapur, Hyderabad",TS-DL-100037,Active
+DRV-000002,Rohit Singh,+91 92000 00002,driver2@example.com,"52, Station Road, Secunderabad, Hyderabad",TS-DL-100074,Active
+DRV-000003,Pooja Reddy,+91 92000 00003,driver3@example.com,"85, Station Road, Banjara Hills, Hyderabad",TS-DL-100111,Active
+DRV-000004,Pooja Das,+91 92000 00004,driver4@example.com,"36, MG Road, Uppal, Hyderabad",TS-DL-100148,Active
+DRV-000005,Neha Rao,+91 92000 00005,driver5@example.com,"24, Gandhi Nagar, Gachibowli, Hyderabad",TS-DL-100185,Active
+DRV-000006,Imran Nair,+91 92000 00006,driver6@example.com,"70, Temple Street, LB Nagar, Hyderabad",TS-DL-100222,Active
+DRV-000007,Aarav Singh,+91 92000 00007,,"48, Ring Road Service Lane, Banjara Hills, Hyderabad",TS-DL-100259,Active
+DRV-000008,Lakshmi Singh,+91 92000 00008,driver8@example.com,"91, Gandhi Nagar, Banjara Hills, Hyderabad",TS-DL-100296,Active
+DRV-000009,Vikram Khan,+91 92000 00009,,"79, Temple Street, Gachibowli, Hyderabad",TS-DL-100333,Active
+DRV-000010,Sneha Rao,+91 92000 00010,,"12, Park Lane, Gachibowli, Hyderabad",TS-DL-100370,Active
+DRV-000011,Divya Nair,+91 92000 00011,,"18, Station Road, Uppal, Hyderabad",TS-DL-100407,Active
+DRV-000012,Vikram Sharma,+91 92000 00012,driver12@example.com,"2, Park Lane, Secunderabad, Hyderabad",TS-DL-100444,Active
+DRV-000013,Neha Singh,+91 92000 00013,,"50, Park Lane, Uppal, Hyderabad",TS-DL-100481,Active
+DRV-000014,Rahul Singh,+91 92000 00014,driver14@example.com,"67, Park Lane, Miyapur, Hyderabad",TS-DL-100518,Active

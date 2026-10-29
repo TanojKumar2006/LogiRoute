@@ -1,0 +1,29 @@
+{
+ "algorithm": "greedy-chronological-insertion-1.0",
+ "days": 5,
+ "depot": {
+  "lat": 17.385,
+  "lon": 78.48,
+  "name": "Hyderabad Central Depot (synthetic)"
+ },
+ "region": {
+  "max_lat": 17.6,
+  "max_lon": 78.7,
+  "min_lat": 17.2,
+  "min_lon": 78.25
+ },
+ "scale": {
+  "days": 5,
+  "deliveries": 120,
+  "drivers": 14,
+  "sites": 40,
+  "vehicles": 12,
+  "zones": [
+   3,
+   3
+  ]
+ },
+ "seed": 20261022,
+ "start_date": "2026-10-01",
+ "timezone": "Asia/Kolkata"
+}
